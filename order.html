@@ -2,11 +2,17 @@
 <html lang="id">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Order jasa CIO Creative In One."
     >
 
     <title>Order — CIO Creative</title>
@@ -15,34 +21,52 @@
         rel="stylesheet"
         href="style.css"
     >
+
 </head>
+
 
 <body>
 
 <div class="page package-page">
 
+
+    <!-- ORNAMEN -->
+
     <div class="package-orb package-orb-one"></div>
     <div class="package-orb package-orb-two"></div>
 
-    <div class="package-star package-star-one">✦</div>
-    <div class="package-star package-star-two">✧</div>
-    <div class="package-star package-star-three">✦</div>
+    <div class="package-star package-star-one">
+        ✦
+    </div>
 
+    <div class="package-star package-star-two">
+        ✧
+    </div>
+
+    <div class="package-star package-star-three">
+        ✦
+    </div>
+
+
+    <!-- HEADER -->
 
     <header class="header">
 
         <img
             src="logo-cio.png.jpeg"
-            alt="CIO Creative In One"
+            alt="Logo CIO Creative In One"
             class="logo"
         >
 
     </header>
 
 
+    <!-- CONTENT -->
+
     <main class="package-container">
 
-        <div class="home-badge">
+
+        <div class="package-badge">
 
             <span>✦</span>
 
@@ -53,39 +77,48 @@
         </div>
 
 
-        <div class="package-title">
+        <section class="package-title">
 
             <p class="package-subtitle">
-                Order Sekarang
+                PILIH LAYANAN
             </p>
 
             <h1 id="serviceTitle">
-                Pilih Paket
+                Order Jasa
             </h1>
 
             <p>
-                Pilih paket yang sesuai
-                dengan kebutuhanmu.
+                Pilih paket yang sesuai dengan kebutuhanmu.
             </p>
 
-        </div>
+        </section>
 
 
-        <div
+        <!-- PACKAGE GRID -->
+
+        <section
             class="package-grid"
             id="packageGrid"
-        ></div>
+        >
+        </section>
 
+
+        <!-- BACK -->
 
         <a
             href="pesan.html"
             class="package-back"
         >
+
             ← Kembali ke Pilih Jasa
+
         </a>
+
 
     </main>
 
+
+    <!-- FOOTER -->
 
     <footer>
 
@@ -97,30 +130,15 @@
 
     </footer>
 
+
 </div>
 
 
 <script>
 
-const params =
-    new URLSearchParams(
-        window.location.search
-    );
+const params = new URLSearchParams(window.location.search);
 
-const jasa =
-    params.get("jasa");
-
-
-const serviceTitle =
-    document.getElementById(
-        "serviceTitle"
-    );
-
-
-const packageGrid =
-    document.getElementById(
-        "packageGrid"
-    );
+const jasa = params.get("jasa") || "video";
 
 
 const data = {
@@ -128,26 +146,30 @@ const data = {
     video: {
 
         title: "Edit Video",
+
         icon: "🎬",
 
         packages: [
 
             {
                 name: "Basic",
-                price: "Rp10.000",
-                desc: "Edit video sederhana"
+                price: "Rp20.000",
+                description: "Edit video sederhana.",
+                detail: "Video maksimal 1 menit."
             },
 
             {
                 name: "Standard",
-                price: "Rp15.000",
-                desc: "Edit video lebih lengkap"
+                price: "Rp30.000",
+                description: "Edit video lebih lengkap.",
+                detail: "Video maksimal 3 menit."
             },
 
             {
                 name: "Premium",
-                price: "Rp25.000",
-                desc: "Edit video lebih detail"
+                price: "Rp45.000",
+                description: "Edit video lebih detail.",
+                detail: "Video maksimal 5 menit."
             }
 
         ]
@@ -158,26 +180,30 @@ const data = {
     foto: {
 
         title: "Edit Foto",
+
         icon: "📷",
 
         packages: [
 
             {
                 name: "Basic",
-                price: "Rp10.000",
-                desc: "Edit foto sederhana"
+                price: "Rp15.000",
+                description: "Edit foto sederhana.",
+                detail: "Warna, crop, dan pencahayaan."
             },
 
             {
                 name: "Standard",
-                price: "Rp15.000",
-                desc: "Edit foto lebih detail"
+                price: "Rp25.000",
+                description: "Edit foto lebih lengkap.",
+                detail: "Retouch dan peningkatan kualitas."
             },
 
             {
                 name: "Premium",
-                price: "Rp25.000",
-                desc: "Edit foto lebih maksimal"
+                price: "Rp35.000",
+                description: "Edit foto lebih detail.",
+                detail: "Retouch, warna, dan detail."
             }
 
         ]
@@ -188,26 +214,30 @@ const data = {
     ppt: {
 
         title: "PPT",
+
         icon: "📊",
 
         packages: [
 
             {
                 name: "Basic",
-                price: "Rp10.000",
-                desc: "PPT sederhana dan rapi"
+                price: "Rp20.000",
+                description: "PPT sederhana dan rapi.",
+                detail: "Desain dasar dan penataan isi."
             },
 
             {
                 name: "Standard",
-                price: "Rp15.000",
-                desc: "PPT dengan desain menarik"
+                price: "Rp30.000",
+                description: "PPT lebih menarik.",
+                detail: "Desain lebih lengkap dan modern."
             },
 
             {
                 name: "Premium",
-                price: "Rp25.000",
-                desc: "PPT dengan desain khusus"
+                price: "Rp45.000",
+                description: "PPT profesional dan detail.",
+                detail: "Desain lengkap dengan visual."
             }
 
         ]
@@ -218,26 +248,30 @@ const data = {
     poster: {
 
         title: "Poster",
+
         icon: "🎨",
 
         packages: [
 
             {
                 name: "Basic",
-                price: "Rp10.000",
-                desc: "Poster sederhana"
+                price: "Rp15.000",
+                description: "Poster sederhana.",
+                detail: "Desain dasar sesuai brief."
             },
 
             {
                 name: "Standard",
-                price: "Rp15.000",
-                desc: "Poster lebih detail"
+                price: "Rp25.000",
+                description: "Poster lebih menarik.",
+                detail: "Desain lebih detail dan kreatif."
             },
 
             {
                 name: "Premium",
-                price: "Rp25.000",
-                desc: "Poster desain khusus"
+                price: "Rp35.000",
+                description: "Poster lebih profesional.",
+                detail: "Desain detail sesuai kebutuhan."
             }
 
         ]
@@ -247,122 +281,77 @@ const data = {
 };
 
 
-const selected =
-    data[jasa] || data.video;
+const service = data[jasa] || data.video;
 
 
-serviceTitle.textContent =
-    selected.icon +
-    " " +
-    selected.title;
+document.getElementById("serviceTitle").textContent =
+    service.title;
 
 
-selected.packages.forEach(
-    function(item) {
-
-        const card =
-            document.createElement("div");
+const grid = document.getElementById("packageGrid");
 
 
-        card.className =
-            "package-card";
+service.packages.forEach((item) => {
+
+    const card = document.createElement("a");
+
+    card.className = "package-card";
+
+    card.href =
+        "order-form.html?jasa=" +
+        encodeURIComponent(jasa) +
+        "&paket=" +
+        encodeURIComponent(item.name);
 
 
-        card.innerHTML = `
+    card.innerHTML = `
 
-            <div class="package-card-top">
+        <div class="package-card-top">
 
-                <div class="package-icon">
-                    ${selected.icon}
-                </div>
-
-                <span class="package-arrow">
-                    →
-                </span>
-
+            <div class="package-icon">
+                ${service.icon}
             </div>
 
-            <div class="package-card-content">
-
-                <span class="package-label">
-                    PAKET
-                </span>
-
-                <h2>
-                    ${item.name}
-                </h2>
-
-                <div class="package-price">
-                    ${item.price}
-                </div>
-
-                <p>
-                    ${item.desc}
-                </p>
-
-                <button
-                    type="button"
-                    class="package-button"
-                    onclick="pesan('${item.name}', '${item.price}')"
-                >
-                    Pilih Paket →
-                </button>
-
+            <div class="package-arrow">
+                →
             </div>
 
-        `;
+        </div>
 
 
-        packageGrid.appendChild(card);
+        <div class="package-card-content">
 
-    }
-);
+            <span class="package-label">
+                PAKET
+            </span>
 
+            <h2>
+                ${item.name}
+            </h2>
 
-function pesan(
-    namaPaket,
-    harga
-) {
+            <div class="package-price">
+                ${item.price}
+            </div>
 
-    const nomor =
-        "6285645045260";
+            <p>
+                ${item.description}
+            </p>
 
+            <p>
+                ${item.detail}
+            </p>
 
-    const namaJasa =
-        selected.title;
+        </div>
 
-
-    const text =
-
-`Halo CIO Creative! 👋
-
-Saya ingin order jasa.
-
-Jasa: ${namaJasa}
-Paket: ${namaPaket}
-Harga: ${harga}
-
-Saya siap melanjutkan pemesanan.
-Mohon info langkah selanjutnya ya.
-
-Terima kasih!`;
+    `;
 
 
-    const whatsapp =
-        "https://wa.me/" +
-        nomor +
-        "?text=" +
-        encodeURIComponent(
-            text
-        );
+    grid.appendChild(card);
 
-
-    window.location.href =
-        whatsapp;
-
-}
+});
 
 </script>
+
 
 </body>
 
