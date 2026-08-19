@@ -1,6 +1,6 @@
 /* =========================================================
    CIO — CREATIVE IN ONE
-   FINAL DESIGN
+   RESPONSIVE FINAL STYLE
    NAVY + GOLD
 ========================================================= */
 
@@ -18,15 +18,11 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background: #061a32;
     color: #f5f1e8;
+    min-height: 100vh;
 }
 
 a {
     color: inherit;
-}
-
-button,
-a {
-    -webkit-tap-highlight-color: transparent;
 }
 
 .page {
@@ -45,11 +41,7 @@ a {
             rgba(212, 175, 55, .08),
             transparent 25%
         ),
-        linear-gradient(
-            145deg,
-            #061a32,
-            #081d36
-        );
+        #061a32;
 }
 
 
@@ -65,24 +57,17 @@ a {
     justify-content: center;
     align-items: center;
 
-    padding: 24px 20px 8px;
+    padding: 28px 20px 8px;
 }
 
 .logo {
-    width: 78px;
-    height: 78px;
+    width: 82px;
+    height: 82px;
 
     object-fit: contain;
-
-    border-radius: 50%;
-
     display: block;
 
-    filter:
-        drop-shadow(
-            0 8px 20px
-            rgba(0, 0, 0, .25)
-        );
+    border-radius: 50%;
 }
 
 
@@ -98,8 +83,7 @@ a {
     width: 240px;
     height: 240px;
 
-    border: 1px solid
-        rgba(212, 175, 55, .15);
+    border: 1px solid rgba(212, 175, 55, .13);
 
     border-radius: 50%;
 
@@ -129,7 +113,7 @@ a {
 
     color: #d4af37;
 
-    opacity: .6;
+    opacity: .55;
 
     pointer-events: none;
 }
@@ -137,33 +121,51 @@ a {
 .home-star-one,
 .package-star-one,
 .pickup-star-one {
-    top: 180px;
+    top: 190px;
     left: 8%;
 
-    font-size: 24px;
+    font-size: 22px;
 }
 
 .home-star-two,
 .package-star-two,
 .pickup-star-two {
-    top: 350px;
+    top: 360px;
     right: 8%;
 
-    font-size: 18px;
+    font-size: 17px;
 }
 
 .home-star-three,
 .package-star-three,
 .pickup-star-three {
     bottom: 150px;
-    left: 14%;
+    left: 13%;
 
-    font-size: 14px;
+    font-size: 13px;
 }
 
 
 /* =========================================================
-   HEADER BADGE
+   HOME
+========================================================= */
+
+.home-container {
+    position: relative;
+    z-index: 3;
+
+    width: min(92%, 680px);
+
+    margin: 0 auto;
+
+    padding: 15px 0 45px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   BADGE
 ========================================================= */
 
 .home-badge,
@@ -174,250 +176,307 @@ a {
     align-items: center;
     justify-content: center;
 
-    gap: 10px;
+    gap: 9px;
 
     width: fit-content;
 
     margin: 0 auto;
 
-    padding: 8px 17px;
+    padding: 8px 16px;
 
-    border: 1px solid
-        rgba(212, 175, 55, .45);
+    border: 1px solid rgba(212, 175, 55, .45);
 
     border-radius: 50px;
 
-    background:
-        rgba(212, 175, 55, .035);
-
     color: #d4af37;
 
-    font-size: 10px;
-
-    font-weight: 600;
+    font-size: 9px;
 
     letter-spacing: 2px;
+
+    white-space: nowrap;
 }
 
 
 /* =========================================================
-   HOME
+   WELCOME
 ========================================================= */
 
-.home-container {
-    position: relative;
-
-    z-index: 3;
-
-    width: min(92%, 720px);
-
-    margin: 0 auto;
-
-    padding: 18px 0 55px;
-
-    text-align: center;
+.welcome {
+    margin-top: 27px;
 }
 
-.home-hero {
-    margin-top: 30px;
-}
-
-.home-small-title {
+.welcome-small {
     color: #9aa7b8;
 
-    font-size: 10px;
+    font-size: 11px;
+
+    letter-spacing: 4px;
 
     font-weight: 600;
-
-    letter-spacing: 3px;
 }
 
-.home-hero h1 {
-    margin-top: 5px;
-
-    color: #f5f1e8;
-
-    font-size: clamp(
-        65px,
-        13vw,
-        105px
-    );
-
-    line-height: .9;
-
-    letter-spacing: -5px;
-
-    text-shadow:
-        0 12px 30px
-        rgba(0, 0, 0, .25);
-}
-
-.home-hero h2 {
-    margin-top: 12px;
+.welcome h1 {
+    margin-top: 7px;
 
     color: #d4af37;
 
-    font-size: clamp(
-        22px,
-        5vw,
-        32px
-    );
+    font-size: clamp(55px, 10vw, 82px);
 
-    letter-spacing: 1px;
+    line-height: .95;
+
+    letter-spacing: 2px;
 }
 
-.home-description {
-    width: min(100%, 450px);
+.welcome h2 {
+    margin-top: 8px;
+
+    color: #f5f1e8;
+
+    font-size: clamp(20px, 4vw, 28px);
+
+    font-weight: 600;
+}
+
+.welcome-description {
+    width: min(100%, 470px);
 
     margin: 16px auto 0;
 
-    color: #9aa7b8;
+    color: #aeb9c8;
 
     font-size: 13px;
 
     line-height: 1.8;
 }
 
+.welcome-description strong {
+    color: #d4af37;
 
-/* =========================================================
-   HOME MENU
-========================================================= */
-
-.home-menu {
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 15px;
-
-    margin-top: 38px;
+    font-weight: 600;
 }
 
-.home-menu-card {
-    position: relative;
 
+/* =========================================================
+   HOME BUTTONS
+========================================================= */
+
+.home-buttons {
     display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    width: min(100%, 430px);
+
+    margin: 30px auto 0;
+}
+
+.main-button {
+    display: grid;
+
+    grid-template-columns: 42px 1fr 28px;
 
     align-items: center;
 
-    gap: 14px;
+    gap: 12px;
 
-    min-height: 125px;
+    width: 100%;
 
-    padding: 20px;
+    min-height: 70px;
 
-    border: 1px solid
-        rgba(212, 175, 55, .25);
+    padding: 12px 15px;
 
-    border-radius: 18px;
+    border: 1px solid rgba(212, 175, 55, .35);
+
+    border-radius: 15px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(13, 43, 77, .95),
-            rgba(8, 29, 54, .95)
+            #0d2b4d,
+            #081d36
         );
+
+    color: #f5f1e8;
 
     text-decoration: none;
 
     text-align: left;
 
     box-shadow:
-        0 15px 35px
-        rgba(0, 0, 0, .20);
+        0 10px 28px rgba(0, 0, 0, .20);
 
     transition:
         transform .25s ease,
         border-color .25s ease,
-        box-shadow .25s ease;
+        background .25s ease;
 }
 
-.home-menu-card:hover {
-    transform: translateY(-5px);
+.main-button:hover {
+    transform: translateY(-3px);
 
     border-color: #d4af37;
 
-    box-shadow:
-        0 20px 40px
-        rgba(0, 0, 0, .30);
+    background:
+        linear-gradient(
+            145deg,
+            #103558,
+            #0a2340
+        );
 }
 
-.home-menu-icon {
+.button-icon {
     display: flex;
 
     align-items: center;
     justify-content: center;
 
-    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
 
-    width: 55px;
-    height: 55px;
-
-    border: 1px solid
-        rgba(212, 175, 55, .35);
-
-    border-radius: 15px;
+    border-radius: 11px;
 
     background: #071a32;
 
-    color: #d4af37;
-
-    font-size: 24px;
-}
-
-.home-menu-content {
-    flex: 1;
-}
-
-.home-menu-content span {
-    display: block;
-
-    margin-bottom: 5px;
+    border: 1px solid rgba(212, 175, 55, .30);
 
     color: #d4af37;
 
-    font-size: 8px;
+    font-size: 19px;
 
-    font-weight: 700;
-
-    letter-spacing: 1.5px;
+    text-align: center;
 }
 
-.home-menu-content h3 {
+.button-text {
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+.button-text strong {
     color: #f5f1e8;
 
-    font-size: 17px;
+    font-size: 14px;
 }
 
-.home-menu-content p {
-    margin-top: 5px;
+.button-text small {
+    margin-top: 4px;
 
     color: #8997a9;
 
     font-size: 10px;
 
-    line-height: 1.5;
+    line-height: 1.4;
 }
 
-.home-menu-arrow {
+.button-arrow {
     color: #d4af37;
 
-    font-size: 21px;
-}
+    font-size: 22px;
 
-.home-note {
-    margin-top: 25px;
-
-    color: #718095;
-
-    font-size: 9px;
-
-    letter-spacing: .5px;
+    text-align: right;
 }
 
 
 /* =========================================================
-   PESAN JASA
+   SERVICES
+========================================================= */
+
+.home-services {
+    width: min(100%, 500px);
+
+    margin: 32px auto 0;
+}
+
+.home-services-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 13px;
+}
+
+.home-services-title span {
+    flex: 1;
+
+    height: 1px;
+
+    background: rgba(212, 175, 55, .20);
+}
+
+.home-services-title p {
+    color: #718095;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    white-space: nowrap;
+}
+
+.home-info {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 10px;
+}
+
+.info-item {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 85px;
+
+    padding: 10px 6px;
+
+    border: 1px solid rgba(212, 175, 55, .18);
+
+    border-radius: 13px;
+
+    background: rgba(8, 29, 54, .70);
+}
+
+.info-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 10px;
+
+    background: #0d2b4d;
+
+    border: 1px solid rgba(212, 175, 55, .15);
+
+    font-size: 18px;
+}
+
+.info-item span {
+    color: #b8c1ce;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   SERVICE PAGE
 ========================================================= */
 
 .service-container {
@@ -429,11 +488,11 @@ a {
 
     margin: 0 auto;
 
-    padding: 18px 0 55px;
+    padding: 15px 0 50px;
 }
 
 .service-title {
-    margin: 24px auto 30px;
+    margin: 22px auto 30px;
 
     text-align: center;
 }
@@ -441,7 +500,7 @@ a {
 .service-title h1 {
     color: #f5f1e8;
 
-    font-size: 34px;
+    font-size: clamp(28px, 5vw, 36px);
 }
 
 .service-title h1 span {
@@ -477,10 +536,9 @@ a {
 
     padding: 20px;
 
-    border: 1px solid
-        rgba(212, 175, 55, .25);
+    border: 1px solid rgba(212, 175, 55, .28);
 
-    border-radius: 18px;
+    border-radius: 17px;
 
     background:
         linear-gradient(
@@ -491,21 +549,15 @@ a {
 
     text-decoration: none;
 
-    box-shadow:
-        0 12px 30px
-        rgba(0, 0, 0, .20);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .20);
 
     transition: .25s ease;
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
 
     border-color: #d4af37;
-
-    box-shadow:
-        0 18px 35px
-        rgba(0, 0, 0, .28);
 }
 
 .service-icon {
@@ -519,18 +571,19 @@ a {
     width: 62px;
     height: 62px;
 
-    border-radius: 16px;
+    border-radius: 15px;
 
     background: #071a32;
 
-    border: 1px solid
-        rgba(212, 175, 55, .35);
+    border: 1px solid rgba(212, 175, 55, .35);
 
     font-size: 29px;
 }
 
 .service-content {
     flex: 1;
+
+    min-width: 0;
 }
 
 .service-label {
@@ -540,9 +593,7 @@ a {
 
     color: #d4af37;
 
-    font-size: 8px;
-
-    font-weight: 700;
+    font-size: 9px;
 
     letter-spacing: 1.5px;
 }
@@ -571,235 +622,7 @@ a {
 
 
 /* =========================================================
-   ORDER / PAKET
-========================================================= */
-
-.package-container {
-    position: relative;
-
-    z-index: 3;
-
-    width: min(92%, 850px);
-
-    margin: 0 auto;
-
-    padding: 18px 0 55px;
-}
-
-.package-title {
-    margin: 24px auto 30px;
-
-    text-align: center;
-}
-
-.package-subtitle {
-    color: #9aa7b8;
-
-    font-size: 11px;
-
-    letter-spacing: 1px;
-}
-
-.package-title h1 {
-    margin-top: 7px;
-
-    color: #d4af37;
-
-    font-size: 30px;
-}
-
-.package-title > p:last-child {
-    margin-top: 7px;
-
-    color: #aeb9c8;
-
-    font-size: 13px;
-}
-
-.package-grid {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 16px;
-}
-
-.package-card {
-    padding: 20px;
-
-    border: 1px solid
-        rgba(212, 175, 55, .25);
-
-    border-radius: 18px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #0d2b4d,
-            #081d36
-        );
-
-    box-shadow:
-        0 12px 30px
-        rgba(0, 0, 0, .20);
-
-    transition: .25s ease;
-}
-
-.package-card:hover {
-    transform: translateY(-5px);
-
-    border-color: #d4af37;
-
-    box-shadow:
-        0 18px 35px
-        rgba(0, 0, 0, .28);
-}
-
-.package-card-top {
-    display: flex;
-
-    align-items: center;
-    justify-content: space-between;
-}
-
-.package-icon {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    width: 48px;
-    height: 48px;
-
-    border-radius: 13px;
-
-    background: #071a32;
-
-    border: 1px solid
-        rgba(212, 175, 55, .30);
-
-    font-size: 22px;
-}
-
-.package-arrow {
-    color: #d4af37;
-
-    font-size: 18px;
-}
-
-.package-card-content {
-    margin-top: 18px;
-}
-
-.package-label {
-    color: #d4af37;
-
-    font-size: 8px;
-
-    font-weight: 700;
-
-    letter-spacing: 1.5px;
-}
-
-.package-card h2 {
-    margin-top: 5px;
-
-    color: #f5f1e8;
-
-    font-size: 20px;
-}
-
-.package-price {
-    margin-top: 10px;
-
-    color: #d4af37;
-
-    font-size: 21px;
-
-    font-weight: 700;
-}
-
-.package-card p {
-    margin-top: 8px;
-
-    min-height: 34px;
-
-    color: #8997a9;
-
-    font-size: 10px;
-
-    line-height: 1.6;
-}
-
-
-/* =========================================================
-   TOMBOL PILIH PAKET
-========================================================= */
-
-.package-button {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
-
-    margin-top: 17px;
-
-    padding: 12px 14px;
-
-    border: 1px solid
-        rgba(212, 175, 55, .7);
-
-    border-radius: 10px;
-
-    background: #d4af37;
-
-    color: #071a32;
-
-    font-family: inherit;
-
-    font-size: 11px;
-
-    font-weight: 800;
-
-    cursor: pointer;
-
-    transition: .25s ease;
-}
-
-.package-button:hover {
-    background: #e4c65a;
-
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 8px 20px
-        rgba(212, 175, 55, .15);
-}
-
-.package-button:active {
-    transform: scale(.98);
-}
-
-.package-back {
-    display: block;
-
-    width: fit-content;
-
-    margin: 24px auto 0;
-
-    color: #d4af37;
-
-    font-size: 12px;
-
-    text-decoration: none;
-}
-
-
-/* =========================================================
-   DETAIL / FORM
+   ORDER / DETAIL
 ========================================================= */
 
 .detail-container {
@@ -811,11 +634,11 @@ a {
 
     margin: 0 auto;
 
-    padding: 18px 0 55px;
+    padding: 15px 0 50px;
 }
 
 .detail-title {
-    margin: 24px auto 25px;
+    margin: 20px auto 25px;
 
     text-align: center;
 }
@@ -823,7 +646,7 @@ a {
 .detail-title h1 {
     color: #d4af37;
 
-    font-size: 30px;
+    font-size: clamp(26px, 5vw, 32px);
 }
 
 .detail-title p {
@@ -837,8 +660,7 @@ a {
 .detail-card {
     padding: 25px;
 
-    border: 1px solid
-        rgba(212, 175, 55, .30);
+    border: 1px solid rgba(212, 175, 55, .3);
 
     border-radius: 18px;
 
@@ -850,8 +672,7 @@ a {
         );
 
     box-shadow:
-        0 15px 35px
-        rgba(0, 0, 0, .25);
+        0 15px 35px rgba(0, 0, 0, .25);
 }
 
 .form-group {
@@ -877,8 +698,7 @@ a {
 
     padding: 12px 13px;
 
-    border: 1px solid
-        rgba(212, 175, 55, .22);
+    border: 1px solid rgba(212, 175, 55, .22);
 
     border-radius: 9px;
 
@@ -956,11 +776,11 @@ a {
 
     margin: 0 auto;
 
-    padding: 18px 0 50px;
+    padding: 15px 0 45px;
 }
 
 .pickup-title {
-    margin: 24px auto 28px;
+    margin: 20px auto 28px;
 
     text-align: center;
 }
@@ -976,7 +796,7 @@ a {
 .pickup-title h1 {
     color: #d4af37;
 
-    font-size: 30px;
+    font-size: clamp(26px, 5vw, 32px);
 }
 
 .pickup-title span {
@@ -994,8 +814,7 @@ a {
 .pickup-card {
     padding: 28px 25px;
 
-    border: 1px solid
-        rgba(212, 175, 55, .35);
+    border: 1px solid rgba(212, 175, 55, .4);
 
     border-radius: 18px;
 
@@ -1007,8 +826,7 @@ a {
         );
 
     box-shadow:
-        0 14px 35px
-        rgba(0, 0, 0, .28);
+        0 14px 35px rgba(0, 0, 0, .28);
 
     text-align: center;
 }
@@ -1024,8 +842,7 @@ a {
 
     margin: 0 auto 18px;
 
-    border: 1px solid
-        rgba(212, 175, 55, .5);
+    border: 1px solid rgba(212, 175, 55, .5);
 
     border-radius: 17px;
 
@@ -1071,13 +888,11 @@ a {
 
     padding: 13px;
 
-    border: 1px solid
-        rgba(255, 255, 255, .07);
+    border: 1px solid rgba(255, 255, 255, .07);
 
     border-radius: 11px;
 
-    background:
-        rgba(4, 17, 33, .45);
+    background: rgba(4, 17, 33, .45);
 }
 
 .step-number {
@@ -1133,13 +948,11 @@ a {
 
     padding: 15px;
 
-    border: 1px solid
-        rgba(212, 175, 55, .22);
+    border: 1px solid rgba(212, 175, 55, .22);
 
     border-radius: 12px;
 
-    background:
-        rgba(212, 175, 55, .05);
+    background: rgba(212, 175, 55, .05);
 
     text-align: left;
 }
@@ -1215,12 +1028,13 @@ a {
     background: #e4c65a;
 }
 
-.pickup-back {
+.pickup-back,
+.package-back {
     display: block;
 
     width: fit-content;
 
-    margin: 20px auto 0;
+    margin: 22px auto 0;
 
     color: #d4af37;
 
@@ -1239,107 +1053,336 @@ footer {
 
     z-index: 5;
 
-    padding: 20px;
+    padding: 18px 20px 25px;
 
     text-align: center;
 
     color: #718095;
 
-    font-size: 11px;
+    font-size: 10px;
+
+    line-height: 1.7;
 }
 
 footer span {
-    margin: 0 5px;
+    margin: 0 4px;
 
     color: #d4af37;
 }
 
 
 /* =========================================================
-   RESPONSIVE
+   TABLET
 ========================================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
 
-    .home-menu {
-        grid-template-columns: 1fr;
+    .home-container {
+        width: min(90%, 600px);
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .service-card {
+        min-height: 135px;
+        padding: 17px;
+    }
+
+}
+
+
+/* =========================================================
+   HP / MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .header {
+        padding-top: 20px;
+    }
+
+    .logo {
+        width: 70px;
+        height: 70px;
+    }
+
+    .home-container {
+        width: 90%;
+
+        padding-top: 10px;
+    }
+
+    .home-badge {
+        font-size: 8px;
+
+        padding: 7px 13px;
+
+        letter-spacing: 1.5px;
+    }
+
+    .welcome {
+        margin-top: 22px;
+    }
+
+    .welcome-small {
+        font-size: 9px;
+
+        letter-spacing: 3px;
+    }
+
+    .welcome h1 {
+        font-size: 58px;
+    }
+
+    .welcome h2 {
+        font-size: 21px;
+    }
+
+    .welcome-description {
+        font-size: 12px;
+
+        line-height: 1.7;
+    }
+
+    .home-buttons {
+        width: 100%;
+
+        margin-top: 25px;
+    }
+
+    .main-button {
+        min-height: 65px;
+
+        grid-template-columns: 40px 1fr 24px;
+
+        gap: 10px;
+
+        padding: 11px 12px;
+
+        border-radius: 13px;
+    }
+
+    .button-icon {
+        width: 40px;
+        height: 40px;
+
+        font-size: 17px;
+    }
+
+    .button-text strong {
+        font-size: 13px;
+    }
+
+    .button-text small {
+        font-size: 9px;
+    }
+
+    .button-arrow {
+        font-size: 19px;
+    }
+
+    .home-services {
+        margin-top: 27px;
+    }
+
+    .home-info {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 9px;
+    }
+
+    .info-item {
+        min-height: 72px;
+
+        flex-direction: row;
+
+        justify-content: flex-start;
+
+        padding: 9px 12px;
+
+        gap: 9px;
+    }
+
+    .info-icon {
+        width: 34px;
+        height: 34px;
+
+        font-size: 16px;
+    }
+
+    .info-item span {
+        font-size: 10px;
+    }
+
+    footer {
+        padding-top: 15px;
+    }
+
+
+    /* SERVICE */
+
+    .service-container {
+        width: 90%;
     }
 
     .service-grid {
         grid-template-columns: 1fr;
-    }
 
-    .package-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .service-card {
-        min-height: 125px;
-    }
-
-    .detail-card,
-    .pickup-card {
-        padding: 22px 17px;
-    }
-
-    .home-hero h1 {
-        font-size: 75px;
-    }
-}
-
-
-@media (max-width: 420px) {
-
-    .header {
-        padding-top: 18px;
-    }
-
-    .logo {
-        width: 68px;
-        height: 68px;
-    }
-
-    .home-container,
-    .service-container,
-    .package-container,
-    .detail-container,
-    .pickup-container {
-        width: 92%;
-    }
-
-    .home-hero h1 {
-        font-size: 68px;
-
-        letter-spacing: -4px;
-    }
-
-    .home-hero h2 {
-        font-size: 23px;
-    }
-
-    .service-title h1,
-    .package-title h1,
-    .detail-title h1,
-    .pickup-title h1 {
-        font-size: 26px;
-    }
-
-    .home-menu-card {
-        padding: 17px;
-
-        min-height: 112px;
+        gap: 11px;
     }
 
     .service-card {
-        padding: 17px;
+        min-height: 105px;
+
+        padding: 14px;
+
+        gap: 12px;
+
+        border-radius: 14px;
     }
 
     .service-icon {
-        width: 55px;
-        height: 55px;
+        width: 50px;
+        height: 50px;
+
+        border-radius: 12px;
+
+        font-size: 23px;
     }
 
-    .package-card {
-        padding: 18px;
+    .service-label {
+        font-size: 8px;
     }
+
+    .service-card h2 {
+        font-size: 16px;
+    }
+
+    .service-card p {
+        font-size: 10px;
+    }
+
+    .service-arrow {
+        font-size: 19px;
+    }
+
+
+    /* DETAIL */
+
+    .detail-container {
+        width: 90%;
+    }
+
+    .detail-card {
+        padding: 20px 15px;
+
+        border-radius: 15px;
+    }
+
+
+    /* PICKUP */
+
+    .pickup-container {
+        width: 90%;
+    }
+
+    .pickup-card {
+        padding: 22px 15px;
+
+        border-radius: 15px;
+    }
+
+}
+
+
+/* =========================================================
+   HP KECIL
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .header {
+        padding-top: 16px;
+    }
+
+    .logo {
+        width: 62px;
+        height: 62px;
+    }
+
+    .home-container {
+        width: 92%;
+    }
+
+    .welcome h1 {
+        font-size: 50px;
+    }
+
+    .welcome h2 {
+        font-size: 19px;
+    }
+
+    .welcome-description {
+        font-size: 11px;
+    }
+
+    .home-badge {
+        font-size: 7px;
+
+        padding: 6px 11px;
+    }
+
+    .main-button {
+        min-height: 61px;
+    }
+
+    .button-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .button-text strong {
+        font-size: 12px;
+    }
+
+    .button-text small {
+        font-size: 8px;
+    }
+
+    .info-item {
+        padding: 8px;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP BESAR
+========================================================= */
+
+@media (min-width: 1200px) {
+
+    .header {
+        padding-top: 35px;
+    }
+
+    .logo {
+        width: 90px;
+        height: 90px;
+    }
+
+    .home-container {
+        padding-top: 20px;
+    }
+
+    .home-buttons {
+        width: 450px;
+    }
+
+    .home-services {
+        width: 520px;
+    }
+
 }
