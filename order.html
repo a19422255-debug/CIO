@@ -2,7 +2,6 @@
 <html lang="id">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -16,35 +15,19 @@
         rel="stylesheet"
         href="style.css"
     >
-
 </head>
-
 
 <body>
 
 <div class="page package-page">
 
-
-    <!-- ORNAMEN -->
-
     <div class="package-orb package-orb-one"></div>
-
     <div class="package-orb package-orb-two"></div>
 
-    <div class="package-star package-star-one">
-        ✦
-    </div>
+    <div class="package-star package-star-one">✦</div>
+    <div class="package-star package-star-two">✧</div>
+    <div class="package-star package-star-three">✦</div>
 
-    <div class="package-star package-star-two">
-        ✧
-    </div>
-
-    <div class="package-star package-star-three">
-        ✦
-    </div>
-
-
-    <!-- HEADER -->
 
     <header class="header">
 
@@ -57,12 +40,9 @@
     </header>
 
 
-    <!-- CONTENT -->
-
     <main class="package-container">
 
-
-        <div class="package-badge">
+        <div class="home-badge">
 
             <span>✦</span>
 
@@ -76,7 +56,7 @@
         <div class="package-title">
 
             <p class="package-subtitle">
-                Kamu memilih
+                Order Sekarang
             </p>
 
             <h1 id="serviceTitle">
@@ -91,31 +71,21 @@
         </div>
 
 
-        <!-- PACKAGE GRID -->
-
         <div
             class="package-grid"
             id="packageGrid"
-        >
-        </div>
+        ></div>
 
-
-        <!-- BACK -->
 
         <a
             href="pesan.html"
             class="package-back"
         >
-
             ← Kembali ke Pilih Jasa
-
         </a>
-
 
     </main>
 
-
-    <!-- FOOTER -->
 
     <footer>
 
@@ -127,20 +97,15 @@
 
     </footer>
 
-
 </div>
 
 
 <script>
 
-
-/* AMBIL JASA */
-
 const params =
     new URLSearchParams(
         window.location.search
     );
-
 
 const jasa =
     params.get("jasa");
@@ -158,14 +123,11 @@ const packageGrid =
     );
 
 
-/* DATA JASA */
-
 const data = {
 
     video: {
 
         title: "Edit Video",
-
         icon: "🎬",
 
         packages: [
@@ -185,7 +147,7 @@ const data = {
             {
                 name: "Premium",
                 price: "Rp25.000",
-                desc: "Edit video dengan detail lebih banyak"
+                desc: "Edit video lebih detail"
             }
 
         ]
@@ -196,7 +158,6 @@ const data = {
     foto: {
 
         title: "Edit Foto",
-
         icon: "📷",
 
         packages: [
@@ -216,7 +177,7 @@ const data = {
             {
                 name: "Premium",
                 price: "Rp25.000",
-                desc: "Edit foto dengan kebutuhan khusus"
+                desc: "Edit foto lebih maksimal"
             }
 
         ]
@@ -227,7 +188,6 @@ const data = {
     ppt: {
 
         title: "PPT",
-
         icon: "📊",
 
         packages: [
@@ -241,13 +201,13 @@ const data = {
             {
                 name: "Standard",
                 price: "Rp15.000",
-                desc: "PPT dengan desain lebih menarik"
+                desc: "PPT dengan desain menarik"
             },
 
             {
                 name: "Premium",
                 price: "Rp25.000",
-                desc: "PPT lengkap dengan desain khusus"
+                desc: "PPT dengan desain khusus"
             }
 
         ]
@@ -258,7 +218,6 @@ const data = {
     poster: {
 
         title: "Poster",
-
         icon: "🎨",
 
         packages: [
@@ -272,7 +231,7 @@ const data = {
             {
                 name: "Standard",
                 price: "Rp15.000",
-                desc: "Poster dengan desain lebih detail"
+                desc: "Poster lebih detail"
             },
 
             {
@@ -288,42 +247,25 @@ const data = {
 };
 
 
-/* PILIH DATA */
-
 const selected =
     data[jasa] || data.video;
 
 
-/* JUDUL */
-
-serviceTitle.innerHTML =
+serviceTitle.textContent =
     selected.icon +
     " " +
     selected.title;
 
 
-/* BUAT KARTU */
-
 selected.packages.forEach(
     function(item) {
 
-
         const card =
-            document.createElement("a");
+            document.createElement("div");
 
 
         card.className =
             "package-card";
-
-
-        card.href =
-            "detail.html" +
-            "?jasa=" +
-            encodeURIComponent(jasa) +
-            "&paket=" +
-            encodeURIComponent(item.name) +
-            "&harga=" +
-            encodeURIComponent(item.price);
 
 
         card.innerHTML = `
@@ -339,7 +281,6 @@ selected.packages.forEach(
                 </span>
 
             </div>
-
 
             <div class="package-card-content">
 
@@ -359,18 +300,67 @@ selected.packages.forEach(
                     ${item.desc}
                 </p>
 
+                <button
+                    type="button"
+                    class="package-button"
+                    onclick="pesan('${item.name}', '${item.price}')"
+                >
+                    Pilih Paket →
+                </button>
+
             </div>
 
         `;
 
 
-        packageGrid.appendChild(
-            card
-        );
+        packageGrid.appendChild(card);
 
     }
 );
 
+
+function pesan(
+    namaPaket,
+    harga
+) {
+
+    const nomor =
+        "6285645045260";
+
+
+    const namaJasa =
+        selected.title;
+
+
+    const text =
+
+`Halo CIO Creative! 👋
+
+Saya ingin order jasa.
+
+Jasa: ${namaJasa}
+Paket: ${namaPaket}
+Harga: ${harga}
+
+Saya siap melanjutkan pemesanan.
+Mohon info langkah selanjutnya ya.
+
+Terima kasih!`;
+
+
+    const whatsapp =
+        "https://wa.me/" +
+        nomor +
+        "?text=" +
+        encodeURIComponent(
+            text
+        );
+
+
+    window.location.href =
+        whatsapp;
+
+}
 
 </script>
 
