@@ -2,11 +2,17 @@
 <html lang="id">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#061a32"
     >
 
     <title>CIO — Creative In One</title>
@@ -15,20 +21,32 @@
         rel="stylesheet"
         href="style.css"
     >
+
 </head>
+
 
 <body>
 
 <div class="page home-page">
 
+
     <!-- ORNAMEN -->
 
     <div class="home-orb home-orb-one"></div>
+
     <div class="home-orb home-orb-two"></div>
 
-    <div class="home-star home-star-one">✦</div>
-    <div class="home-star home-star-two">✧</div>
-    <div class="home-star home-star-three">✦</div>
+    <div class="home-star home-star-one">
+        ✦
+    </div>
+
+    <div class="home-star home-star-two">
+        ✧
+    </div>
+
+    <div class="home-star home-star-three">
+        ✦
+    </div>
 
 
     <!-- HEADER -->
@@ -37,16 +55,19 @@
 
         <img
             src="logo-cio.png.jpeg"
-            alt="CIO Creative In One"
+            alt="Logo CIO Creative In One"
             class="logo"
         >
 
     </header>
 
 
-    <!-- CONTENT -->
+    <!-- MAIN -->
 
     <main class="home-container">
+
+
+        <!-- BADGE -->
 
         <div class="home-badge">
 
@@ -59,34 +80,37 @@
         </div>
 
 
-        <div class="welcome">
+        <!-- WELCOME -->
 
-            <p>
+        <section class="welcome">
+
+            <p class="welcome-small">
                 WELCOME TO
             </p>
 
             <h1>
-                <span>CIO</span>
+                CIO
             </h1>
 
             <h2>
                 Creative In One
             </h2>
 
-            <p>
+            <p class="welcome-description">
                 Solusi kreatif untuk kebutuhan
-                desain, foto, video, dan presentasi.
+                <strong>
+                    desain, foto, video,
+                </strong>
+                dan presentasi.
             </p>
 
-        </div>
+        </section>
 
 
-        <!-- BUTTONS -->
+        <!-- ACTION BUTTONS -->
 
-        <div class="home-buttons">
+        <section class="home-buttons">
 
-
-            <!-- PESAN JASA -->
 
             <a
                 href="pesan.html"
@@ -97,8 +121,14 @@
                     ✦
                 </span>
 
-                <span>
-                    Pesan Jasa
+                <span class="button-text">
+                    <strong>
+                        Pesan Jasa
+                    </strong>
+
+                    <small>
+                        Pilih layanan yang kamu butuhkan
+                    </small>
                 </span>
 
                 <span class="button-arrow">
@@ -108,20 +138,25 @@
             </a>
 
 
-            <!-- AMBIL PESANAN -->
-
             <a
                 href="ambil.html"
                 class="main-button"
-                style="margin-top: 12px;"
             >
 
                 <span class="button-icon">
                     📦
                 </span>
 
-                <span>
-                    Ambil Pesanan
+                <span class="button-text">
+
+                    <strong>
+                        Ambil Pesanan
+                    </strong>
+
+                    <small>
+                        Cek hasil pesananmu
+                    </small>
+
                 </span>
 
                 <span class="button-arrow">
@@ -130,65 +165,81 @@
 
             </a>
 
-        </div>
+
+        </section>
 
 
-        <!-- INFO -->
+        <!-- SERVICES -->
 
-        <div class="home-info">
+        <section class="home-services">
 
-            <div class="info-item">
-
-                <div class="info-icon">
-                    🎬
-                </div>
-
-                <span>
-                    Video
-                </span>
-
+            <div class="home-services-title">
+                <span></span>
+                <p>
+                    LAYANAN CIO
+                </p>
+                <span></span>
             </div>
 
 
-            <div class="info-item">
+            <div class="home-info">
 
-                <div class="info-icon">
-                    📷
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        🎬
+                    </div>
+
+                    <span>
+                        Video
+                    </span>
+
                 </div>
 
-                <span>
-                    Foto
-                </span>
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        📷
+                    </div>
+
+                    <span>
+                        Foto
+                    </span>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        🎨
+                    </div>
+
+                    <span>
+                        Poster
+                    </span>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <div class="info-icon">
+                        📊
+                    </div>
+
+                    <span>
+                        PPT
+                    </span>
+
+                </div>
+
 
             </div>
 
-
-            <div class="info-item">
-
-                <div class="info-icon">
-                    🎨
-                </div>
-
-                <span>
-                    Poster
-                </span>
-
-            </div>
-
-
-            <div class="info-item">
-
-                <div class="info-icon">
-                    📊
-                </div>
-
-                <span>
-                    PPT
-                </span>
-
-            </div>
-
-        </div>
+        </section>
 
 
     </main>
@@ -218,4 +269,5 @@
 </div>
 
 </body>
+
 </html>
