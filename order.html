@@ -1,44 +1,379 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
+
 <head>
-    <head>
+
     <meta charset="UTF-8">
-    <title>Pesan - CIO</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Order — CIO Creative</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
-</head>
+
 
 <body>
 
-    <h1>CIO</h1>
+<div class="page package-page">
 
-    <h2>Detail Pesanan</h2>
-    <p id="paket"></p>
 
-    <p>Nama</p>
-<input 
-    type="text" 
-    id="nama"
-    placeholder="Masukkan nama kamu"
->
-<p>WhatsApp</p>
+    <!-- ORNAMEN -->
 
-<input 
-    type="text" 
-    id="whatsapp"
-    placeholder="08xxxxxxxxxx"
->
+    <div class="package-orb package-orb-one"></div>
 
-  <p>Catatan Pesanan</p>
+    <div class="package-orb package-orb-two"></div>
 
-<textarea 
-    id="catatan"
-    placeholder="Tulis request kamu di sini"
-></textarea>
+    <div class="package-star package-star-one">
+        ✦
+    </div>
 
-    <br><br>
+    <div class="package-star package-star-two">
+        ✧
+    </div>
 
-   <button onclick="kirimWhatsApp()">Pesan Sekarang</button>
-<script src="script.js"></script>
+    <div class="package-star package-star-three">
+        ✦
+    </div>
+
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <img
+            src="logo-cio.png.jpeg"
+            alt="CIO Creative In One"
+            class="logo"
+        >
+
+    </header>
+
+
+    <!-- CONTENT -->
+
+    <main class="package-container">
+
+
+        <div class="package-badge">
+
+            <span>✦</span>
+
+            CIO CREATIVE
+
+            <span>✦</span>
+
+        </div>
+
+
+        <div class="package-title">
+
+            <p class="package-subtitle">
+                Kamu memilih
+            </p>
+
+            <h1 id="serviceTitle">
+                Pilih Paket
+            </h1>
+
+            <p>
+                Pilih paket yang sesuai
+                dengan kebutuhanmu.
+            </p>
+
+        </div>
+
+
+        <!-- PACKAGE GRID -->
+
+        <div
+            class="package-grid"
+            id="packageGrid"
+        >
+        </div>
+
+
+        <!-- BACK -->
+
+        <a
+            href="pesan.html"
+            class="package-back"
+        >
+
+            ← Kembali ke Pilih Jasa
+
+        </a>
+
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <span>✦</span>
+
+        CIO — Creative In One
+
+        <span>✦</span>
+
+    </footer>
+
+
+</div>
+
+
+<script>
+
+
+/* AMBIL JASA */
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+const jasa =
+    params.get("jasa");
+
+
+const serviceTitle =
+    document.getElementById(
+        "serviceTitle"
+    );
+
+
+const packageGrid =
+    document.getElementById(
+        "packageGrid"
+    );
+
+
+/* DATA JASA */
+
+const data = {
+
+    video: {
+
+        title: "Edit Video",
+
+        icon: "🎬",
+
+        packages: [
+
+            {
+                name: "Basic",
+                price: "Rp10.000",
+                desc: "Edit video sederhana"
+            },
+
+            {
+                name: "Standard",
+                price: "Rp15.000",
+                desc: "Edit video lebih lengkap"
+            },
+
+            {
+                name: "Premium",
+                price: "Rp25.000",
+                desc: "Edit video dengan detail lebih banyak"
+            }
+
+        ]
+
+    },
+
+
+    foto: {
+
+        title: "Edit Foto",
+
+        icon: "📷",
+
+        packages: [
+
+            {
+                name: "Basic",
+                price: "Rp10.000",
+                desc: "Edit foto sederhana"
+            },
+
+            {
+                name: "Standard",
+                price: "Rp15.000",
+                desc: "Edit foto lebih detail"
+            },
+
+            {
+                name: "Premium",
+                price: "Rp25.000",
+                desc: "Edit foto dengan kebutuhan khusus"
+            }
+
+        ]
+
+    },
+
+
+    ppt: {
+
+        title: "PPT",
+
+        icon: "📊",
+
+        packages: [
+
+            {
+                name: "Basic",
+                price: "Rp10.000",
+                desc: "PPT sederhana dan rapi"
+            },
+
+            {
+                name: "Standard",
+                price: "Rp15.000",
+                desc: "PPT dengan desain lebih menarik"
+            },
+
+            {
+                name: "Premium",
+                price: "Rp25.000",
+                desc: "PPT lengkap dengan desain khusus"
+            }
+
+        ]
+
+    },
+
+
+    poster: {
+
+        title: "Poster",
+
+        icon: "🎨",
+
+        packages: [
+
+            {
+                name: "Basic",
+                price: "Rp10.000",
+                desc: "Poster sederhana"
+            },
+
+            {
+                name: "Standard",
+                price: "Rp15.000",
+                desc: "Poster dengan desain lebih detail"
+            },
+
+            {
+                name: "Premium",
+                price: "Rp25.000",
+                desc: "Poster desain khusus"
+            }
+
+        ]
+
+    }
+
+};
+
+
+/* PILIH DATA */
+
+const selected =
+    data[jasa] || data.video;
+
+
+/* JUDUL */
+
+serviceTitle.innerHTML =
+    selected.icon +
+    " " +
+    selected.title;
+
+
+/* BUAT KARTU */
+
+selected.packages.forEach(
+    function(item) {
+
+
+        const card =
+            document.createElement("a");
+
+
+        card.className =
+            "package-card";
+
+
+        card.href =
+            "detail.html" +
+            "?jasa=" +
+            encodeURIComponent(jasa) +
+            "&paket=" +
+            encodeURIComponent(item.name) +
+            "&harga=" +
+            encodeURIComponent(item.price);
+
+
+        card.innerHTML = `
+
+            <div class="package-card-top">
+
+                <div class="package-icon">
+                    ${selected.icon}
+                </div>
+
+                <span class="package-arrow">
+                    →
+                </span>
+
+            </div>
+
+
+            <div class="package-card-content">
+
+                <span class="package-label">
+                    PAKET
+                </span>
+
+                <h2>
+                    ${item.name}
+                </h2>
+
+                <div class="package-price">
+                    ${item.price}
+                </div>
+
+                <p>
+                    ${item.desc}
+                </p>
+
+            </div>
+
+        `;
+
+
+        packageGrid.appendChild(
+            card
+        );
+
+    }
+);
+
+
+</script>
 
 </body>
+
 </html>
