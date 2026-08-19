@@ -12,15 +12,433 @@
 
     <meta
         name="description"
-        content="Order jasa CIO Creative In One."
+        content="Pilih paket jasa CIO Creative In One."
     >
 
-    <title>Order — CIO Creative</title>
+    <title>Pilih Paket — CIO Creative</title>
 
     <link
         rel="stylesheet"
         href="style.css"
     >
+
+    <style>
+
+        /* =====================================================
+           ORDER PACKAGE PAGE
+        ===================================================== */
+
+        .order-package-container {
+            position: relative;
+            z-index: 3;
+
+            width: min(92%, 900px);
+
+            margin: 0 auto;
+
+            padding: 15px 0 50px;
+        }
+
+
+        .order-package-title {
+            margin: 25px auto 35px;
+
+            text-align: center;
+        }
+
+
+        .order-package-title .small-title {
+            color: #9aa7b8;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+        }
+
+
+        .order-package-title h1 {
+            margin-top: 7px;
+
+            color: #f5f1e8;
+
+            font-size: clamp(28px, 5vw, 38px);
+        }
+
+
+        .order-package-title h1 span {
+            color: #d4af37;
+        }
+
+
+        .order-package-title p {
+            margin-top: 9px;
+
+            color: #aeb9c8;
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           PACKAGE GRID
+        ===================================================== */
+
+        .new-package-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 18px;
+
+        }
+
+
+        .new-package-card {
+
+            position: relative;
+
+            display: flex;
+
+            flex-direction: column;
+
+            min-height: 300px;
+
+            padding: 22px;
+
+            border:
+                1px solid
+                rgba(212, 175, 55, .28);
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #0d2b4d,
+                    #071a32
+                );
+
+            box-shadow:
+                0 15px 35px
+                rgba(0, 0, 0, .25);
+
+            text-decoration: none;
+
+            overflow: hidden;
+
+            transition:
+                transform .25s ease,
+                border-color .25s ease,
+                box-shadow .25s ease;
+
+        }
+
+
+        .new-package-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 120px;
+            height: 120px;
+
+            top: -65px;
+            right: -65px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid
+                rgba(212, 175, 55, .18);
+
+        }
+
+
+        .new-package-card:hover {
+
+            transform: translateY(-6px);
+
+            border-color: #d4af37;
+
+            box-shadow:
+                0 20px 45px
+                rgba(0, 0, 0, .35);
+
+        }
+
+
+        /* =====================================================
+           ICON
+        ===================================================== */
+
+        .new-package-top {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+
+        .new-package-icon {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 58px;
+            height: 58px;
+
+            border-radius: 15px;
+
+            background: #061a32;
+
+            border:
+                1px solid
+                rgba(212, 175, 55, .35);
+
+            font-size: 27px;
+
+        }
+
+
+        .new-package-arrow {
+
+            color: #d4af37;
+
+            font-size: 23px;
+
+        }
+
+
+        /* =====================================================
+           CONTENT
+        ===================================================== */
+
+        .new-package-content {
+
+            margin-top: 25px;
+
+        }
+
+
+        .new-package-label {
+
+            color: #d4af37;
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        .new-package-name {
+
+            margin-top: 6px;
+
+            color: #f5f1e8;
+
+            font-size: 22px;
+
+        }
+
+
+        .new-package-price {
+
+            margin-top: 13px;
+
+            color: #d4af37;
+
+            font-size: 23px;
+
+            font-weight: 700;
+
+        }
+
+
+        .new-package-description {
+
+            margin-top: 9px;
+
+            color: #9aa7b8;
+
+            font-size: 11px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .new-package-detail {
+
+            margin-top: 5px;
+
+            color: #718095;
+
+            font-size: 10px;
+
+            line-height: 1.5;
+
+        }
+
+
+        /* =====================================================
+           BUTTON
+        ===================================================== */
+
+        .new-package-button {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-top: auto;
+
+            padding-top: 22px;
+
+            color: #f5f1e8;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+        }
+
+
+        .new-package-button span:last-child {
+
+            color: #d4af37;
+
+            font-size: 17px;
+
+        }
+
+
+        /* =====================================================
+           BACK
+        ===================================================== */
+
+        .new-package-back {
+
+            display: block;
+
+            width: fit-content;
+
+            margin: 25px auto 0;
+
+            color: #d4af37;
+
+            font-size: 12px;
+
+            text-decoration: none;
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 720px) {
+
+            .new-package-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 14px;
+
+            }
+
+
+            .new-package-card {
+
+                min-height: 0;
+
+                padding: 20px;
+
+            }
+
+
+            .new-package-content {
+
+                margin-top: 19px;
+
+            }
+
+
+            .new-package-button {
+
+                margin-top: 20px;
+
+            }
+
+        }
+
+
+        @media (max-width: 420px) {
+
+            .order-package-container {
+
+                width: 91%;
+
+            }
+
+
+            .order-package-title {
+
+                margin-bottom: 25px;
+
+            }
+
+
+            .new-package-card {
+
+                padding: 18px;
+
+                border-radius: 17px;
+
+            }
+
+
+            .new-package-icon {
+
+                width: 52px;
+
+                height: 52px;
+
+                font-size: 24px;
+
+            }
+
+
+            .new-package-name {
+
+                font-size: 20px;
+
+            }
+
+
+            .new-package-price {
+
+                font-size: 21px;
+
+            }
+
+        }
+
+    </style>
 
 </head>
 
@@ -33,6 +451,7 @@
     <!-- ORNAMEN -->
 
     <div class="package-orb package-orb-one"></div>
+
     <div class="package-orb package-orb-two"></div>
 
     <div class="package-star package-star-one">
@@ -63,10 +482,12 @@
 
     <!-- CONTENT -->
 
-    <main class="package-container">
+    <main class="order-package-container">
 
 
-        <div class="package-badge">
+        <!-- BADGE -->
+
+        <div class="home-badge">
 
             <span>✦</span>
 
@@ -77,14 +498,16 @@
         </div>
 
 
-        <section class="package-title">
+        <!-- TITLE -->
 
-            <p class="package-subtitle">
-                PILIH LAYANAN
+        <section class="order-package-title">
+
+            <p class="small-title">
+                PILIH PAKET
             </p>
 
             <h1 id="serviceTitle">
-                Order Jasa
+                Edit <span>Video</span>
             </h1>
 
             <p>
@@ -97,9 +520,10 @@
         <!-- PACKAGE GRID -->
 
         <section
-            class="package-grid"
+            class="new-package-grid"
             id="packageGrid"
         >
+
         </section>
 
 
@@ -107,11 +531,9 @@
 
         <a
             href="pesan.html"
-            class="package-back"
+            class="new-package-back"
         >
-
             ← Kembali ke Pilih Jasa
-
         </a>
 
 
@@ -136,222 +558,320 @@
 
 <script>
 
-const params = new URLSearchParams(window.location.search);
+/* =========================================================
+   AMBIL JASA DARI URL
+========================================================= */
 
-const jasa = params.get("jasa") || "video";
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
 
+
+const jasa =
+    params.get("jasa") || "video";
+
+
+/* =========================================================
+   DATA
+========================================================= */
 
 const data = {
 
     video: {
 
-        title: "Edit Video",
+        name: "Edit Video",
 
         icon: "🎬",
 
-        packages: [
+        prices: {
 
-            {
-                name: "Basic",
-                price: "Rp20.000",
-                description: "Edit video sederhana.",
-                detail: "Video maksimal 1 menit."
-            },
+            Basic: "Rp20.000",
 
-            {
-                name: "Standard",
-                price: "Rp30.000",
-                description: "Edit video lebih lengkap.",
-                detail: "Video maksimal 3 menit."
-            },
+            Standard: "Rp30.000",
 
-            {
-                name: "Premium",
-                price: "Rp45.000",
-                description: "Edit video lebih detail.",
-                detail: "Video maksimal 5 menit."
-            }
+            Premium: "Rp45.000"
 
-        ]
+        },
+
+        descriptions: {
+
+            Basic:
+                "Edit video sederhana dan rapi.",
+
+            Standard:
+                "Edit video lebih lengkap dan menarik.",
+
+            Premium:
+                "Edit video lebih detail dan profesional."
+
+        },
+
+        details: {
+
+            Basic:
+                "Maksimal 1 menit.",
+
+            Standard:
+                "Maksimal 3 menit.",
+
+            Premium:
+                "Maksimal 5 menit."
+
+        }
 
     },
 
 
     foto: {
 
-        title: "Edit Foto",
+        name: "Edit Foto",
 
         icon: "📷",
 
-        packages: [
+        prices: {
 
-            {
-                name: "Basic",
-                price: "Rp15.000",
-                description: "Edit foto sederhana.",
-                detail: "Warna, crop, dan pencahayaan."
-            },
+            Basic: "Rp15.000",
 
-            {
-                name: "Standard",
-                price: "Rp25.000",
-                description: "Edit foto lebih lengkap.",
-                detail: "Retouch dan peningkatan kualitas."
-            },
+            Standard: "Rp25.000",
 
-            {
-                name: "Premium",
-                price: "Rp35.000",
-                description: "Edit foto lebih detail.",
-                detail: "Retouch, warna, dan detail."
-            }
+            Premium: "Rp35.000"
 
-        ]
+        },
+
+        descriptions: {
+
+            Basic:
+                "Edit foto sederhana dan rapi.",
+
+            Standard:
+                "Edit foto lebih lengkap.",
+
+            Premium:
+                "Edit foto lebih detail."
+
+        },
+
+        details: {
+
+            Basic:
+                "Warna dan pencahayaan.",
+
+            Standard:
+                "Retouch dan peningkatan kualitas.",
+
+            Premium:
+                "Retouch, warna, dan detail."
+
+        }
 
     },
 
 
     ppt: {
 
-        title: "PPT",
+        name: "PPT",
 
         icon: "📊",
 
-        packages: [
+        prices: {
 
-            {
-                name: "Basic",
-                price: "Rp20.000",
-                description: "PPT sederhana dan rapi.",
-                detail: "Desain dasar dan penataan isi."
-            },
+            Basic: "Rp20.000",
 
-            {
-                name: "Standard",
-                price: "Rp30.000",
-                description: "PPT lebih menarik.",
-                detail: "Desain lebih lengkap dan modern."
-            },
+            Standard: "Rp30.000",
 
-            {
-                name: "Premium",
-                price: "Rp45.000",
-                description: "PPT profesional dan detail.",
-                detail: "Desain lengkap dengan visual."
-            }
+            Premium: "Rp45.000"
 
-        ]
+        },
+
+        descriptions: {
+
+            Basic:
+                "PPT sederhana dan rapi.",
+
+            Standard:
+                "PPT lebih menarik dan modern.",
+
+            Premium:
+                "PPT lengkap dengan desain detail."
+
+        },
+
+        details: {
+
+            Basic:
+                "Desain dasar.",
+
+            Standard:
+                "Desain lebih lengkap.",
+
+            Premium:
+                "Visual dan layout lebih detail."
+
+        }
 
     },
 
 
     poster: {
 
-        title: "Poster",
+        name: "Poster",
 
         icon: "🎨",
 
-        packages: [
+        prices: {
 
-            {
-                name: "Basic",
-                price: "Rp15.000",
-                description: "Poster sederhana.",
-                detail: "Desain dasar sesuai brief."
-            },
+            Basic: "Rp15.000",
 
-            {
-                name: "Standard",
-                price: "Rp25.000",
-                description: "Poster lebih menarik.",
-                detail: "Desain lebih detail dan kreatif."
-            },
+            Standard: "Rp25.000",
 
-            {
-                name: "Premium",
-                price: "Rp35.000",
-                description: "Poster lebih profesional.",
-                detail: "Desain detail sesuai kebutuhan."
-            }
+            Premium: "Rp35.000"
 
-        ]
+        },
+
+        descriptions: {
+
+            Basic:
+                "Poster sederhana.",
+
+            Standard:
+                "Poster lebih menarik.",
+
+            Premium:
+                "Poster lebih detail dan kreatif."
+
+        },
+
+        details: {
+
+            Basic:
+                "Desain dasar.",
+
+            Standard:
+                "Desain lebih lengkap.",
+
+            Premium:
+                "Desain detail sesuai kebutuhan."
+
+        }
 
     }
 
 };
 
 
-const service = data[jasa] || data.video;
+const service =
+    data[jasa] || data.video;
 
 
-document.getElementById("serviceTitle").textContent =
-    service.title;
+/* =========================================================
+   TITLE
+========================================================= */
+
+document.getElementById(
+    "serviceTitle"
+).innerHTML =
+    service.icon +
+    " " +
+    service.name;
 
 
-const grid = document.getElementById("packageGrid");
+/* =========================================================
+   PACKAGE
+========================================================= */
+
+const packageGrid =
+    document.getElementById(
+        "packageGrid"
+    );
 
 
-service.packages.forEach((item) => {
-
-    const card = document.createElement("a");
-
-    card.className = "package-card";
-
-    card.href =
-        "order-form.html?jasa=" +
-        encodeURIComponent(jasa) +
-        "&paket=" +
-        encodeURIComponent(item.name);
+const packageNames = [
+    "Basic",
+    "Standard",
+    "Premium"
+];
 
 
-    card.innerHTML = `
+packageNames.forEach(
+    (packageName) => {
 
-        <div class="package-card-top">
+        const card =
+            document.createElement("a");
 
-            <div class="package-icon">
-                ${service.icon}
+
+        card.className =
+            "new-package-card";
+
+
+        card.href =
+            "order-form.html?jasa=" +
+            encodeURIComponent(jasa) +
+            "&paket=" +
+            encodeURIComponent(packageName);
+
+
+        card.innerHTML = `
+
+            <div class="new-package-top">
+
+                <div class="new-package-icon">
+                    ${service.icon}
+                </div>
+
+                <div class="new-package-arrow">
+                    →
+                </div>
+
             </div>
 
-            <div class="package-arrow">
-                →
+
+            <div class="new-package-content">
+
+                <span class="new-package-label">
+                    PAKET
+                </span>
+
+                <h2 class="new-package-name">
+                    ${packageName}
+                </h2>
+
+                <div class="new-package-price">
+                    ${service.prices[packageName]}
+                </div>
+
+                <p class="new-package-description">
+                    ${service.descriptions[packageName]}
+                </p>
+
+                <p class="new-package-detail">
+                    ${service.details[packageName]}
+                </p>
+
             </div>
 
-        </div>
 
+            <div class="new-package-button">
 
-        <div class="package-card-content">
+                <span>
+                    Pilih Paket
+                </span>
 
-            <span class="package-label">
-                PAKET
-            </span>
+                <span>
+                    →
+                </span>
 
-            <h2>
-                ${item.name}
-            </h2>
-
-            <div class="package-price">
-                ${item.price}
             </div>
 
-            <p>
-                ${item.description}
-            </p>
-
-            <p>
-                ${item.detail}
-            </p>
-
-        </div>
-
-    `;
+        `;
 
 
-    grid.appendChild(card);
+        packageGrid.appendChild(card);
 
-});
+    }
+);
 
 </script>
-
 
 </body>
 
