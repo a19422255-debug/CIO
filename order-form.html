@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Order — CIO Creative</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+<div class="page detail-page">
+
+    <!-- ORNAMEN -->
+    <div class="package-orb package-orb-one"></div>
+    <div class="package-orb package-orb-two"></div>
+
+    <div class="package-star package-star-one">✦</div>
+    <div class="package-star package-star-two">✧</div>
+    <div class="package-star package-star-three">✦</div>
+
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <img
+            src="logo-cio.png.jpeg"
+            alt="Logo CIO Creative In One"
+            class="logo"
+        >
+
+    </header>
+
+
+    <!-- CONTENT -->
+    <main class="detail-container">
+
+        <div class="home-badge">
+            <span>✦</span>
+            CIO CREATIVE
+            <span>✦</span>
+        </div>
+
+
+        <section class="detail-title">
+
+            <p>
+                DETAIL PESANAN
+            </p>
+
+            <h1 id="serviceName">
+                Order
+            </h1>
+
+            <p id="packageName">
+                Paket
+            </p>
+
+        </section>
+
+
+        <!-- FORM -->
+        <section class="detail-card">
+
+
+            <div class="form-group">
+
+                <label for="nama">
+                    Nama
+                </label>
+
+                <input
+                    type="text"
+                    id="nama"
+                    placeholder="Masukkan nama kamu"
+                    autocomplete="name"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="nomor">
+                    Nomor WhatsApp
+                </label>
+
+                <input
+                    type="tel"
+                    id="nomor"
+                    placeholder="Contoh: 081234567890"
+                    autocomplete="tel"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="deskripsi">
+                    Detail Pesanan
+                </label>
+
+                <textarea
+                    id="deskripsi"
+                    placeholder="Jelaskan kebutuhan edit kamu..."
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="file">
+                    Link File / Google Drive
+                </label>
+
+                <input
+                    type="url"
+                    id="file"
+                    placeholder="Tempel link file jika ada"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="catatan">
+                    Catatan Tambahan
+                </label>
+
+                <textarea
+                    id="catatan"
+                    placeholder="Tambahkan catatan jika diperlukan..."
+                ></textarea>
+
+            </div>
+
+
+            <!-- RINGKASAN -->
+            <div class="order-summary">
+
+                <div>
+                    <span>Layanan</span>
+                    <strong id="summaryService">-</strong>
+                </div>
+
+                <div>
+                    <span>Paket</span>
+                    <strong id="summaryPackage">-</strong>
+                </div>
+
+                <div>
+                    <span>Total</span>
+                    <strong id="summaryPrice">-</strong>
+                </div>
+
+            </div>
+
+
+            <!-- WHATSAPP -->
+            <button
+                type="button"
+                class="whatsapp-button"
+                onclick="kirimWhatsApp()"
+            >
+                💬 Kirim Pesanan ke WhatsApp
+            </button>
+
+
+        </section>
+
+
+        <a
+            href="javascript:history.back()"
+            class="package-back"
+        >
+            ← Kembali
+        </a>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <span>✦</span>
+
+        CIO — Creative In One
+
+        <span>✦</span>
+
+    </footer>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   AMBIL DATA URL
+========================================================= */
+
+const params =
+    new URLSearchParams(window.location.search);
+
+const jasa =
+    params.get("jasa") || "video";
+
+const paket =
+    params.get("paket") || "Basic";
+
+
+/* =========================================================
+   DATA JASA + HARGA
+========================================================= */
+
+const data = {
+
+    video: {
+
+        name: "Edit Video",
+
+        icon: "🎬",
+
+        prices: {
+            Basic: "Rp20.000",
+            Standard: "Rp30.000",
+            Premium: "Rp45.000"
+        }
+
+    },
+
+
+    foto: {
+
+        name: "Edit Foto",
+
+        icon: "📷",
+
+        prices: {
+            Basic: "Rp15.000",
+            Standard: "Rp25.000",
+            Premium: "Rp35.000"
+        }
+
+    },
+
+
+    ppt: {
+
+        name: "PPT",
+
+        icon: "📊",
+
+        prices: {
+            Basic: "Rp20.000",
+            Standard: "Rp30.000",
+            Premium: "Rp45.000"
+        }
+
+    },
+
+
+    poster: {
+
+        name: "Poster",
+
+        icon: "🎨",
+
+        prices: {
+            Basic: "Rp15.000",
+            Standard: "Rp25.000",
+            Premium: "Rp35.000"
+        }
+
+    }
+
+};
+
+
+const service =
+    data[jasa] || data.video;
+
+const price =
+    service.prices[paket] ||
+    service.prices.Basic;
+
+
+/* =========================================================
+   TAMPILKAN INFORMASI
+========================================================= */
+
+document.getElementById("serviceName").textContent =
+    service.icon + " " + service.name;
+
+document.getElementById("packageName").textContent =
+    "Paket " + paket;
+
+document.getElementById("summaryService").textContent =
+    service.name;
+
+document.getElementById("summaryPackage").textContent =
+    paket;
+
+document.getElementById("summaryPrice").textContent =
+    price;
+
+
+/* =========================================================
+   KIRIM WHATSAPP
+========================================================= */
+
+function kirimWhatsApp() {
+
+    const nama =
+        document.getElementById("nama").value.trim();
+
+    const nomor =
+        document.getElementById("nomor").value.trim();
+
+    const deskripsi =
+        document.getElementById("deskripsi").value.trim();
+
+    const file =
+        document.getElementById("file").value.trim();
+
+    const catatan =
+        document.getElementById("catatan").value.trim();
+
+
+    if (!nama) {
+
+        alert("Masukkan nama terlebih dahulu.");
+
+        return;
+    }
+
+
+    if (!nomor) {
+
+        alert("Masukkan nomor WhatsApp terlebih dahulu.");
+
+        return;
+    }
+
+
+    if (!deskripsi) {
+
+        alert("Jelaskan detail pesanan kamu terlebih dahulu.");
+
+        return;
+    }
+
+
+    /* NOMOR WHATSAPP CEO CIO */
+
+    const nomorAdmin =
+        "6285645045260";
+
+
+    const pesan =
+
+`Halo CIO! 👋
+
+Saya ingin memesan jasa.
+
+📌 Layanan:
+${service.name}
+
+📦 Paket:
+${paket}
+
+💰 Harga:
+${price}
+
+👤 Nama:
+${nama}
+
+📱 Nomor WhatsApp:
+${nomor}
+
+📝 Detail Pesanan:
+${deskripsi}
+
+🔗 Link File:
+${file || "-"}
+
+📎 Catatan:
+${catatan || "-"}
+
+Mohon info untuk proses selanjutnya. Terima kasih!`;
+
+
+    const url =
+        "https://wa.me/" +
+        nomorAdmin +
+        "?text=" +
+        encodeURIComponent(pesan);
+
+
+    window.open(url, "_blank");
+
+}
+
+</script>
+
+</body>
+</html>
