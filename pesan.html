@@ -167,11 +167,11 @@
             </a>
 
 
-            <!-- PPT -->
+            <!-- PPT LOCKED / COMING SOON -->
 
-            <a
-                href="order.html?jasa=ppt"
-                class="service-card"
+            <div
+                class="service-card service-card-locked"
+                aria-disabled="true"
             >
 
                 <div class="service-icon">
@@ -181,24 +181,24 @@
                 <div class="service-content">
 
                     <span class="service-label">
-                        CREATIVE SERVICE
+                        COMING SOON
                     </span>
 
                     <h2>
-                        PPT
+                        PPT 🔒
                     </h2>
 
                     <p>
-                        Presentasi rapi dan menarik.
+                        Layanan sedang dalam persiapan.
                     </p>
 
                 </div>
 
                 <div class="service-arrow">
-                    →
+                    🔒
                 </div>
 
-            </a>
+            </div>
 
 
             <!-- POSTER -->
@@ -267,6 +267,26 @@
 
 
 </div>
+
+
+<!-- PPT LOCKED STYLE -->
+
+<style>
+
+    .service-card-locked {
+        cursor: not-allowed;
+        opacity: .68;
+        filter: saturate(.65);
+    }
+
+    .service-card-locked:hover {
+        transform: none;
+        border-color: rgba(212, 175, 55, .28);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, .20);
+    }
+
+</style>
+
 
 </body>
 
