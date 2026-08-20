@@ -10,12 +10,7 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <meta
-        name="description"
-        content="Pilih layanan kreatif CIO Creative In One."
-    >
-
-    <title>Pesan Jasa — CIO Creative</title>
+    <title>Pelunasan Pesanan — CIO Creative</title>
 
     <link
         rel="stylesheet"
@@ -84,155 +79,91 @@
         <section class="service-title">
 
             <h1>
-                Order <span>Sekarang</span>
+                Pelunasan <span>Pesanan</span>
             </h1>
 
             <p>
-                Pilih layanan yang kamu butuhkan.
+                Selesaikan pembayaran pesananmu melalui WhatsApp CIO.
             </p>
 
         </section>
 
 
-        <!-- SERVICE GRID -->
+        <!-- PAYMENT INFO -->
 
-        <section class="service-grid">
+        <section class="detail-card">
 
 
-            <!-- VIDEO -->
+            <div class="form-group">
 
-            <a
-                href="order.html?jasa=video"
-                class="service-card"
-            >
+                <label for="kodePesanan">
+                    Kode Pesanan
+                </label>
 
-                <div class="service-icon">
-                    🎬
-                </div>
+                <input
+                    type="text"
+                    id="kodePesanan"
+                    placeholder="Masukkan kode pesanan"
+                >
 
-                <div class="service-content">
+            </div>
 
-                    <span class="service-label">
-                        CREATIVE SERVICE
+
+            <div class="order-summary">
+
+                <div>
+
+                    <span>
+                        Status
                     </span>
 
-                    <h2>
-                        Edit Video
-                    </h2>
-
-                    <p>
-                        Edit video sesuai kebutuhanmu.
-                    </p>
+                    <strong>
+                        Menunggu Pelunasan
+                    </strong>
 
                 </div>
 
-                <div class="service-arrow">
-                    →
-                </div>
 
-            </a>
+                <div>
 
-
-            <!-- FOTO -->
-
-            <a
-                href="order.html?jasa=foto"
-                class="service-card"
-            >
-
-                <div class="service-icon">
-                    📷
-                </div>
-
-                <div class="service-content">
-
-                    <span class="service-label">
-                        CREATIVE SERVICE
+                    <span>
+                        Pembayaran
                     </span>
 
-                    <h2>
-                        Edit Foto
-                    </h2>
+                    <strong>
+                        50% Sisa Pembayaran
+                    </strong>
 
-                    <p>
-                        Buat foto jadi lebih menarik.
-                    </p>
-
-                </div>
-
-                <div class="service-arrow">
-                    →
-                </div>
-
-            </a>
-
-
-            <!-- PPT LOCKED / COMING SOON -->
-
-            <div
-                class="service-card service-card-locked"
-                aria-disabled="true"
-            >
-
-                <div class="service-icon">
-                    📊
-                </div>
-
-                <div class="service-content">
-
-                    <span class="service-label">
-                        COMING SOON
-                    </span>
-
-                    <h2>
-                        PPT 🔒
-                    </h2>
-
-                    <p>
-                        Layanan sedang dalam persiapan.
-                    </p>
-
-                </div>
-
-                <div class="service-arrow">
-                    🔒
                 </div>
 
             </div>
 
 
-            <!-- POSTER -->
+            <!-- INFO -->
 
-            <a
-                href="order.html?jasa=poster"
-                class="service-card"
+            <div class="payment-info">
+
+                <h3>
+                    💳 Cara Pelunasan
+                </h3>
+
+                <p>
+                    Silakan hubungi WhatsApp CIO untuk mendapatkan
+                    nominal pelunasan dan instruksi pembayaran.
+                </p>
+
+            </div>
+
+
+            <!-- WHATSAPP -->
+
+            <button
+                type="button"
+                class="whatsapp-button"
+                onclick="konfirmasiPelunasan()"
             >
-
-                <div class="service-icon">
-                    🎨
-                </div>
-
-                <div class="service-content">
-
-                    <span class="service-label">
-                        CREATIVE SERVICE
-                    </span>
-
-                    <h2>
-                        Poster
-                    </h2>
-
-                    <p>
-                        Desain poster sesuai kebutuhan.
-                    </p>
-
-                </div>
-
-                <div class="service-arrow">
-                    →
-                </div>
-
-            </a>
+                💬 Hubungi CIO untuk Pelunasan
+            </button>
 
 
         </section>
@@ -269,23 +200,63 @@
 </div>
 
 
-<!-- PPT LOCKED STYLE -->
+<script>
 
-<style>
+function konfirmasiPelunasan() {
 
-    .service-card-locked {
-        cursor: not-allowed;
-        opacity: .68;
-        filter: saturate(.65);
+    const kode =
+        document
+        .getElementById("kodePesanan")
+        .value
+        .trim();
+
+
+    if (!kode) {
+
+        alert(
+            "Masukkan kode pesanan terlebih dahulu."
+        );
+
+        return;
+
     }
 
-    .service-card-locked:hover {
-        transform: none;
-        border-color: rgba(212, 175, 55, .28);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, .20);
-    }
 
-</style>
+    const nomorAdmin =
+        "6285645045260";
+
+
+    const pesan =
+
+`Halo CIO! 👋
+
+Saya ingin melakukan pelunasan pesanan.
+
+📦 Kode Pesanan:
+${kode}
+
+💳 Saya ingin melakukan pelunasan 50%.
+
+Mohon informasi nominal pelunasan dan instruksi pembayaran.
+
+Terima kasih!`;
+
+
+    const url =
+        "https://wa.me/" +
+        nomorAdmin +
+        "?text=" +
+        encodeURIComponent(pesan);
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+}
+
+</script>
 
 
 </body>
