@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -10,11 +11,6 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <meta
-        name="description"
-        content="Pilih paket jasa CIO Creative In One."
-    >
-
     <title>Pilih Paket — CIO Creative</title>
 
     <link
@@ -22,545 +18,134 @@
         href="style.css"
     >
 
-    <style>
-
-        /* =====================================================
-           ORDER PACKAGE PAGE
-        ===================================================== */
-
-        .order-package-container {
-            position: relative;
-            z-index: 3;
-
-            width: min(92%, 900px);
-
-            margin: 0 auto;
-
-            padding: 15px 0 50px;
-        }
-
-
-        .order-package-title {
-            margin: 25px auto 35px;
-
-            text-align: center;
-        }
-
-
-        .order-package-title .small-title {
-            color: #9aa7b8;
-
-            font-size: 11px;
-
-            letter-spacing: 2px;
-        }
-
-
-        .order-package-title h1 {
-            margin-top: 7px;
-
-            color: #f5f1e8;
-
-            font-size: clamp(28px, 5vw, 38px);
-        }
-
-
-        .order-package-title h1 span {
-            color: #d4af37;
-        }
-
-
-        .order-package-title p {
-            margin-top: 9px;
-
-            color: #aeb9c8;
-
-            font-size: 13px;
-        }
-
-
-        /* =====================================================
-           PACKAGE GRID
-        ===================================================== */
-
-        .new-package-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, minmax(0, 1fr));
-
-            gap: 18px;
-
-        }
-
-
-        .new-package-card {
-
-            position: relative;
-
-            display: flex;
-
-            flex-direction: column;
-
-            min-height: 300px;
-
-            padding: 22px;
-
-            border:
-                1px solid
-                rgba(212, 175, 55, .28);
-
-            border-radius: 20px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #0d2b4d,
-                    #071a32
-                );
-
-            box-shadow:
-                0 15px 35px
-                rgba(0, 0, 0, .25);
-
-            text-decoration: none;
-
-            overflow: hidden;
-
-            transition:
-                transform .25s ease,
-                border-color .25s ease,
-                box-shadow .25s ease;
-
-        }
-
-
-        .new-package-card::before {
-
-            content: "";
-
-            position: absolute;
-
-            width: 120px;
-            height: 120px;
-
-            top: -65px;
-            right: -65px;
-
-            border-radius: 50%;
-
-            border:
-                1px solid
-                rgba(212, 175, 55, .18);
-
-        }
-
-
-        .new-package-card:hover {
-
-            transform: translateY(-6px);
-
-            border-color: #d4af37;
-
-            box-shadow:
-                0 20px 45px
-                rgba(0, 0, 0, .35);
-
-        }
-
-
-        /* =====================================================
-           ICON
-        ===================================================== */
-
-        .new-package-top {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-        }
-
-
-        .new-package-icon {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            width: 58px;
-            height: 58px;
-
-            border-radius: 15px;
-
-            background: #061a32;
-
-            border:
-                1px solid
-                rgba(212, 175, 55, .35);
-
-            font-size: 27px;
-
-        }
-
-
-        .new-package-arrow {
-
-            color: #d4af37;
-
-            font-size: 23px;
-
-        }
-
-
-        /* =====================================================
-           CONTENT
-        ===================================================== */
-
-        .new-package-content {
-
-            margin-top: 25px;
-
-        }
-
-
-        .new-package-label {
-
-            color: #d4af37;
-
-            font-size: 9px;
-
-            font-weight: 700;
-
-            letter-spacing: 2px;
-
-        }
-
-
-        .new-package-name {
-
-            margin-top: 6px;
-
-            color: #f5f1e8;
-
-            font-size: 22px;
-
-        }
-
-
-        .new-package-price {
-
-            margin-top: 13px;
-
-            color: #d4af37;
-
-            font-size: 23px;
-
-            font-weight: 700;
-
-        }
-
-
-        .new-package-description {
-
-            margin-top: 9px;
-
-            color: #9aa7b8;
-
-            font-size: 11px;
-
-            line-height: 1.6;
-
-        }
-
-
-        .new-package-detail {
-
-            margin-top: 5px;
-
-            color: #718095;
-
-            font-size: 10px;
-
-            line-height: 1.5;
-
-        }
-
-
-        /* =====================================================
-           BUTTON
-        ===================================================== */
-
-        .new-package-button {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            margin-top: auto;
-
-            padding-top: 22px;
-
-            color: #f5f1e8;
-
-            font-size: 11px;
-
-            font-weight: 700;
-
-        }
-
-
-        .new-package-button span:last-child {
-
-            color: #d4af37;
-
-            font-size: 17px;
-
-        }
-
-
-        /* =====================================================
-           BACK
-        ===================================================== */
-
-        .new-package-back {
-
-            display: block;
-
-            width: fit-content;
-
-            margin: 25px auto 0;
-
-            color: #d4af37;
-
-            font-size: 12px;
-
-            text-decoration: none;
-
-        }
-
-
-        /* =====================================================
-           MOBILE
-        ===================================================== */
-
-        @media (max-width: 720px) {
-
-            .new-package-grid {
-
-                grid-template-columns: 1fr;
-
-                gap: 14px;
-
-            }
-
-
-            .new-package-card {
-
-                min-height: 0;
-
-                padding: 20px;
-
-            }
-
-
-            .new-package-content {
-
-                margin-top: 19px;
-
-            }
-
-
-            .new-package-button {
-
-                margin-top: 20px;
-
-            }
-
-        }
-
-
-        @media (max-width: 420px) {
-
-            .order-package-container {
-
-                width: 91%;
-
-            }
-
-
-            .order-package-title {
-
-                margin-bottom: 25px;
-
-            }
-
-
-            .new-package-card {
-
-                padding: 18px;
-
-                border-radius: 17px;
-
-            }
-
-
-            .new-package-icon {
-
-                width: 52px;
-
-                height: 52px;
-
-                font-size: 24px;
-
-            }
-
-
-            .new-package-name {
-
-                font-size: 20px;
-
-            }
-
-
-            .new-package-price {
-
-                font-size: 21px;
-
-            }
-
-        }
-
-    </style>
-
 </head>
 
 
 <body>
 
-<div class="page package-page">
+    <div class="page package-page">
 
 
-    <!-- ORNAMEN -->
+        <!-- ORNAMEN -->
 
-    <div class="package-orb package-orb-one"></div>
+        <div class="package-orb package-orb-one"></div>
 
-    <div class="package-orb package-orb-two"></div>
+        <div class="package-orb package-orb-two"></div>
 
-    <div class="package-star package-star-one">
-        ✦
-    </div>
+        <div class="package-star package-star-one">
+            ✦
+        </div>
 
-    <div class="package-star package-star-two">
-        ✧
-    </div>
+        <div class="package-star package-star-two">
+            ✧
+        </div>
 
-    <div class="package-star package-star-three">
-        ✦
-    </div>
-
-
-    <!-- HEADER -->
-
-    <header class="header">
-
-        <img
-            src="logo-cio.png.jpeg"
-            alt="Logo CIO Creative In One"
-            class="logo"
-        >
-
-    </header>
-
-
-    <!-- CONTENT -->
-
-    <main class="order-package-container">
-
-
-        <!-- BADGE -->
-
-        <div class="home-badge">
-
-            <span>✦</span>
-
-            CIO CREATIVE
-
-            <span>✦</span>
-
+        <div class="package-star package-star-three">
+            ✦
         </div>
 
 
-        <!-- TITLE -->
 
-        <section class="order-package-title">
+        <!-- HEADER -->
 
-            <p class="small-title">
-                PILIH PAKET
-            </p>
+        <header class="header">
 
-            <h1 id="serviceTitle">
-                Edit <span>Video</span>
-            </h1>
+            <a href="index.html">
 
-            <p>
-                Pilih paket yang sesuai dengan kebutuhanmu.
-            </p>
+                <img
+                    src="logo-cio.png.jpeg"
+                    alt="CIO Creative In One"
+                    class="logo"
+                >
 
-        </section>
+            </a>
 
-
-        <!-- PACKAGE GRID -->
-
-        <section
-            class="new-package-grid"
-            id="packageGrid"
-        >
-
-        </section>
+        </header>
 
 
-        <!-- BACK -->
 
-        <a
-            href="pesan.html"
-            class="new-package-back"
-        >
-            ← Kembali ke Pilih Jasa
-        </a>
+        <!-- CONTENT -->
+
+        <main class="package-container">
 
 
-    </main>
+            <div class="package-badge">
+
+                <span>✦</span>
+
+                CIO CREATIVE
+
+                <span>✦</span>
+
+            </div>
 
 
-    <!-- FOOTER -->
 
-    <footer>
+            <div class="package-title">
 
-        <span>✦</span>
+                <p class="package-subtitle">
+                    Kamu memilih
+                </p>
 
-        CIO — Creative In One
+                <h1 id="serviceTitle">
+                    Pilih Paket
+                </h1>
 
-        <span>✦</span>
+                <p>
+                    Pilih paket yang sesuai
+                    dengan kebutuhanmu.
+                </p>
 
-    </footer>
+            </div>
 
 
-</div>
+
+            <!-- PAKET -->
+
+            <div
+                class="package-grid"
+                id="packageGrid"
+            ></div>
+
+
+
+            <!-- KEMBALI -->
+
+            <a
+                href="pesan.html"
+                class="package-back"
+            >
+                ← Kembali ke Pilih Jasa
+            </a>
+
+
+        </main>
+
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <span>✦</span>
+
+            CIO — Creative In One
+
+            <span>✦</span>
+
+        </footer>
+
+
+    </div>
+
 
 
 <script>
 
-/* =========================================================
-   AMBIL JASA DARI URL
-========================================================= */
+
+/* =========================================
+   AMBIL JASA
+========================================= */
 
 const params =
     new URLSearchParams(
@@ -572,213 +157,269 @@ const jasa =
     params.get("jasa") || "video";
 
 
-/* =========================================================
-   DATA
-========================================================= */
 
-const data = {
+/* =========================================
+   DATA PAKET CIO
+========================================= */
+
+const packages = {
+
+
+    /* =====================================
+       VIDEO
+    ===================================== */
 
     video: {
 
-        name: "Edit Video",
+        title: "Edit Video",
 
         icon: "🎬",
 
-        prices: {
+        items: [
 
-            Basic: "Rp20.000",
+            {
+                name: "Video Pendek",
 
-            Standard: "Rp30.000",
+                price: "Rp25.000",
 
-            Premium: "Rp45.000"
+                desc:
+                    "Maks. 30 detik • Cutting, musik, teks sederhana, dan transisi dasar",
 
-        },
+                duration:
+                    "Estimasi: 1 hari"
+            },
 
-        descriptions: {
 
-            Basic:
-                "Edit video sederhana dan rapi.",
+            {
+                name: "Basic",
 
-            Standard:
-                "Edit video lebih lengkap dan menarik.",
+                price: "Rp40.000",
 
-            Premium:
-                "Edit video lebih detail dan profesional."
+                desc:
+                    "Maks. 60 detik • Cutting, musik, teks, transisi, SFX sederhana, dan color correction",
 
-        },
+                duration:
+                    "Estimasi: 1–2 hari"
+            },
 
-        details: {
 
-            Basic:
-                "Maksimal 1 menit.",
+            {
+                name: "Standard",
 
-            Standard:
-                "Maksimal 3 menit.",
+                price: "Rp70.000",
 
-            Premium:
-                "Maksimal 5 menit."
+                desc:
+                    "Maks. 2 menit • Subtitle, beat sync, SFX, color grading, dan transisi lebih detail",
 
-        }
+                duration:
+                    "Estimasi: 2–3 hari"
+            },
+
+
+            {
+                name: "Premium",
+
+                price: "Rp100.000",
+
+                desc:
+                    "Maks. 3 menit • Sound design, color grading detail, serta efek dan transisi kompleks",
+
+                duration:
+                    "Estimasi: 3–4 hari"
+            }
+
+        ]
 
     },
 
+
+
+    /* =====================================
+       FOTO
+    ===================================== */
 
     foto: {
 
-        name: "Edit Foto",
+        title: "Edit Foto",
 
         icon: "📷",
 
-        prices: {
+        items: [
 
-            Basic: "Rp15.000",
+            {
+                name: "Basic",
 
-            Standard: "Rp25.000",
+                price: "Rp25.000",
 
-            Premium: "Rp35.000"
+                desc:
+                    "Per foto • Crop, resize, brightness, contrast, saturation, dan basic color correction",
 
-        },
+                duration:
+                    "Estimasi: 1 hari"
+            },
 
-        descriptions: {
 
-            Basic:
-                "Edit foto sederhana dan rapi.",
+            {
+                name: "Standard",
 
-            Standard:
-                "Edit foto lebih lengkap.",
+                price: "Rp40.000",
 
-            Premium:
-                "Edit foto lebih detail."
+                desc:
+                    "Per foto • Retouch wajah ringan, remove objek sederhana, background cleanup, dan color grading",
 
-        },
+                duration:
+                    "Estimasi: 1–2 hari"
+            },
 
-        details: {
 
-            Basic:
-                "Warna dan pencahayaan.",
+            {
+                name: "Premium",
 
-            Standard:
-                "Retouch dan peningkatan kualitas.",
+                price: "Rp70.000",
 
-            Premium:
-                "Retouch, warna, dan detail."
+                desc:
+                    "Per foto • Manipulasi foto, penggantian background, retouch detail, compositing, dan efek kreatif",
 
-        }
+                duration:
+                    "Estimasi: 2–3 hari"
+            }
+
+        ]
 
     },
 
+
+
+    /* =====================================
+       PPT
+    ===================================== */
 
     ppt: {
 
-        name: "PPT",
+        title: "PPT / Dokumen",
 
         icon: "📊",
 
-        prices: {
+        items: [
 
-            Basic: "Rp20.000",
+            {
+                name: "Basic",
 
-            Standard: "Rp30.000",
+                price: "Rp5.000/slide",
 
-            Premium: "Rp45.000"
+                desc:
+                    "Layout rapi, font, warna, gambar, icon, dan template sederhana",
 
-        },
+                duration:
+                    "Estimasi: 1–2 hari"
+            },
 
-        descriptions: {
 
-            Basic:
-                "PPT sederhana dan rapi.",
+            {
+                name: "Standard",
 
-            Standard:
-                "PPT lebih menarik dan modern.",
+                price: "Rp10.000/slide",
 
-            Premium:
-                "PPT lengkap dengan desain detail."
+                desc:
+                    "Custom layout, infographic sederhana, icon, diagram, tabel, dan transisi",
 
-        },
+                duration:
+                    "Estimasi: 2–4 hari"
+            },
 
-        details: {
 
-            Basic:
-                "Desain dasar.",
+            {
+                name: "Premium",
 
-            Standard:
-                "Desain lebih lengkap.",
+                price: "Rp20.000/slide",
 
-            Premium:
-                "Visual dan layout lebih detail."
+                desc:
+                    "Custom design, infographic kompleks, animasi, motion, diagram, dan visual storytelling",
 
-        }
+                duration:
+                    "Estimasi: 4–7 hari"
+            }
+
+        ]
 
     },
 
 
+
+    /* =====================================
+       POSTER
+    ===================================== */
+
     poster: {
 
-        name: "Poster",
+        title: "Poster / Pamflet",
 
         icon: "🎨",
 
-        prices: {
+        items: [
 
-            Basic: "Rp15.000",
+            {
+                name: "Basic",
 
-            Standard: "Rp25.000",
+                price: "Rp30.000",
 
-            Premium: "Rp35.000"
+                desc:
+                    "Layout sederhana, teks, foto, warna, dan beberapa elemen grafis",
 
-        },
+                duration:
+                    "Estimasi: 1–2 hari"
+            },
 
-        descriptions: {
 
-            Basic:
-                "Poster sederhana.",
+            {
+                name: "Standard",
 
-            Standard:
-                "Poster lebih menarik.",
+                price: "Rp60.000",
 
-            Premium:
-                "Poster lebih detail dan kreatif."
+                desc:
+                    "Desain custom, typography, icon, shape, color grading, dan layout profesional",
 
-        },
+                duration:
+                    "Estimasi: 2–3 hari"
+            },
 
-        details: {
 
-            Basic:
-                "Desain dasar.",
+            {
+                name: "Premium",
 
-            Standard:
-                "Desain lebih lengkap.",
+                price: "Rp100.000",
 
-            Premium:
-                "Desain detail sesuai kebutuhan."
+                desc:
+                    "Konsep custom, manipulasi foto, ilustrasi/elemen kompleks, visual hierarchy, dan detail tinggi",
 
-        }
+                duration:
+                    "Estimasi: 3–5 hari"
+            }
+
+        ]
 
     }
 
 };
 
 
-const service =
-    data[jasa] || data.video;
 
+/* =========================================
+   TAMPILKAN JASA
+========================================= */
 
-/* =========================================================
-   TITLE
-========================================================= */
+const selected =
+    packages[jasa] || packages.video;
+
 
 document.getElementById(
     "serviceTitle"
-).innerHTML =
-    service.icon +
+).textContent =
+    selected.icon +
     " " +
-    service.name;
+    selected.title;
 
 
-/* =========================================================
-   PACKAGE
-========================================================= */
 
 const packageGrid =
     document.getElementById(
@@ -786,81 +427,80 @@ const packageGrid =
     );
 
 
-const packageNames = [
-    "Basic",
-    "Standard",
-    "Premium"
-];
 
+/* =========================================
+   BUAT KARTU PAKET
+========================================= */
 
-packageNames.forEach(
-    (packageName) => {
+selected.items.forEach(
+    function(item) {
+
 
         const card =
             document.createElement("a");
 
 
         card.className =
-            "new-package-card";
+            "package-card";
 
+
+        /*
+         * Harga dikirim ke halaman detail
+         * agar sistem lama tetap bisa
+         * membaca parameter harga.
+         */
 
         card.href =
-            "order-form.html?jasa=" +
+            "detail.html" +
+            "?jasa=" +
             encodeURIComponent(jasa) +
             "&paket=" +
-            encodeURIComponent(packageName);
+            encodeURIComponent(item.name) +
+            "&harga=" +
+            encodeURIComponent(item.price);
+
 
 
         card.innerHTML = `
 
-            <div class="new-package-top">
-
-                <div class="new-package-icon">
-                    ${service.icon}
-                </div>
-
-                <div class="new-package-arrow">
-                    →
-                </div>
-
+            <div class="package-icon">
+                ${selected.icon}
             </div>
 
 
-            <div class="new-package-content">
-
-                <span class="new-package-label">
-                    PAKET
-                </span>
-
-                <h2 class="new-package-name">
-                    ${packageName}
-                </h2>
-
-                <div class="new-package-price">
-                    ${service.prices[packageName]}
-                </div>
-
-                <p class="new-package-description">
-                    ${service.descriptions[packageName]}
-                </p>
-
-                <p class="new-package-detail">
-                    ${service.details[packageName]}
-                </p>
-
+            <div class="package-label">
+                PAKET
             </div>
 
 
-            <div class="new-package-button">
+            <h2>
+                ${item.name}
+            </h2>
 
-                <span>
-                    Pilih Paket
-                </span>
 
-                <span>
-                    →
-                </span>
+            <div class="package-price">
+                ${item.price}
+            </div>
 
+
+            <p>
+                ${item.desc}
+            </p>
+
+
+            <small
+                style="
+                    display:block;
+                    margin-top:10px;
+                    opacity:0.7;
+                "
+            >
+                ${item.duration}
+            </small>
+
+
+            <div class="package-select">
+                Pilih Paket →
             </div>
 
         `;
@@ -873,6 +513,8 @@ packageNames.forEach(
 
 </script>
 
+
 </body>
 
 </html>
+```
