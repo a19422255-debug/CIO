@@ -1,520 +1,816 @@
-
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <title>Order — CIO Creative In One</title>
 
-    <title>Pilih Paket — CIO Creative</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
 
+        body {
+            width: 100%;
+            min-height: 100vh;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            background: #061a32;
+            color: #f5f1e8;
+
+            overflow-x: hidden;
+        }
+
+        /* =========================================
+           PAGE
+        ========================================= */
+
+        .page {
+            position: relative;
+
+            width: 100%;
+            min-height: 100vh;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(212, 175, 55, .10),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 90% 90%,
+                    rgba(212, 175, 55, .08),
+                    transparent 25%
+                ),
+                #061a32;
+        }
+
+        /* =========================================
+           ORNAMEN
+        ========================================= */
+
+        .orb {
+            position: absolute;
+
+            width: 240px;
+            height: 240px;
+
+            border: 1px solid rgba(212, 175, 55, .13);
+
+            border-radius: 50%;
+
+            pointer-events: none;
+        }
+
+        .orb-one {
+            top: -130px;
+            left: -120px;
+        }
+
+        .orb-two {
+            right: -130px;
+            bottom: -130px;
+        }
+
+        .star {
+            position: absolute;
+
+            color: #d4af37;
+
+            opacity: .55;
+
+            pointer-events: none;
+        }
+
+        .star-one {
+            top: 190px;
+            left: 8%;
+
+            font-size: 22px;
+        }
+
+        .star-two {
+            top: 360px;
+            right: 8%;
+
+            font-size: 17px;
+        }
+
+        .star-three {
+            bottom: 150px;
+            left: 13%;
+
+            font-size: 13px;
+        }
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        .header {
+            position: relative;
+            z-index: 5;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 25px 20px 5px;
+        }
+
+        .logo {
+            display: block;
+
+            width: 78px;
+            height: 78px;
+
+            object-fit: contain;
+
+            border-radius: 50%;
+        }
+
+        /* =========================================
+           CONTAINER
+        ========================================= */
+
+        .order-container {
+            position: relative;
+            z-index: 3;
+
+            width: min(92%, 650px);
+
+            margin: 0 auto;
+
+            padding: 15px 0 45px;
+        }
+
+        /* =========================================
+           TITLE
+        ========================================= */
+
+        .order-title {
+            margin: 20px auto 25px;
+
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 7px 14px;
+
+            border: 1px solid rgba(212, 175, 55, .45);
+
+            border-radius: 50px;
+
+            color: #d4af37;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            white-space: nowrap;
+        }
+
+        .order-title h1 {
+            margin-top: 17px;
+
+            color: #d4af37;
+
+            font-size: clamp(28px, 6vw, 35px);
+
+            line-height: 1.15;
+        }
+
+        .order-title p {
+            margin-top: 8px;
+
+            color: #9aa7b8;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+        }
+
+        /* =========================================
+           CARD
+        ========================================= */
+
+        .order-card {
+            width: 100%;
+
+            padding: 25px;
+
+            border: 1px solid rgba(212, 175, 55, .30);
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #0d2b4d,
+                    #081d36
+                );
+
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, .25);
+        }
+
+        /* =========================================
+           SELECTED PACKAGE
+        ========================================= */
+
+        .selected-package {
+            margin-bottom: 22px;
+
+            padding: 17px;
+
+            border: 1px solid rgba(212, 175, 55, .18);
+
+            border-radius: 12px;
+
+            background: rgba(4, 17, 33, .45);
+        }
+
+        .selected-package-label {
+            display: block;
+
+            margin-bottom: 6px;
+
+            color: #8997a9;
+
+            font-size: 9px;
+
+            letter-spacing: 1.5px;
+        }
+
+        .selected-package-service {
+            color: #d4af37;
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+        .selected-package h2 {
+            margin-top: 5px;
+
+            color: #f5f1e8;
+
+            font-size: 20px;
+
+            line-height: 1.25;
+
+            overflow-wrap: anywhere;
+        }
+
+        .selected-package-price {
+            display: block;
+
+            margin-top: 8px;
+
+            color: #d4af37;
+
+            font-size: 19px;
+
+            font-weight: 700;
+        }
+
+        /* =========================================
+           FORM
+        ========================================= */
+
+        .form-group {
+            margin-bottom: 17px;
+        }
+
+        .form-group label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #d4af37;
+
+            font-size: 11px;
+
+            font-weight: 700;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            display: block;
+
+            width: 100%;
+            max-width: 100%;
+
+            padding: 12px 13px;
+
+            border: 1px solid rgba(212, 175, 55, .22);
+
+            border-radius: 9px;
+
+            outline: none;
+
+            background: #071a32;
+
+            color: #f5f1e8;
+
+            font-family: inherit;
+
+            font-size: 12px;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #627186;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #d4af37;
+        }
+
+        .form-group textarea {
+            min-height: 115px;
+
+            resize: vertical;
+        }
+
+        /* =========================================
+           BUTTON
+        ========================================= */
+
+        .whatsapp-button {
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            width: 100%;
+
+            margin-top: 10px;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #d4af37;
+
+            color: #071a32;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: .25s ease;
+        }
+
+        .whatsapp-button:hover {
+            background: #e4c65a;
+
+            transform: translateY(-2px);
+        }
+
+        /* =========================================
+           BACK
+        ========================================= */
+
+        .back-button {
+            display: block;
+
+            width: fit-content;
+
+            max-width: 100%;
+
+            margin: 21px auto 0;
+
+            color: #d4af37;
+
+            font-size: 12px;
+
+            text-decoration: none;
+
+            overflow-wrap: anywhere;
+        }
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            position: relative;
+            z-index: 5;
+
+            padding: 18px 15px 25px;
+
+            color: #718095;
+
+            font-size: 10px;
+
+            text-align: center;
+
+            line-height: 1.7;
+        }
+
+        footer span {
+            margin: 0 4px;
+
+            color: #d4af37;
+        }
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 600px) {
+
+            .header {
+                padding-top: 18px;
+            }
+
+            .logo {
+                width: 68px;
+                height: 68px;
+            }
+
+            .order-container {
+                width: 90%;
+
+                padding-top: 8px;
+            }
+
+            .order-title {
+                margin-top: 18px;
+            }
+
+            .order-title h1 {
+                font-size: 27px;
+            }
+
+            .order-title p {
+                font-size: 12px;
+            }
+
+            .order-card {
+                padding: 20px 15px;
+
+                border-radius: 15px;
+            }
+
+            .selected-package {
+                padding: 14px;
+            }
+
+            .selected-package h2 {
+                font-size: 18px;
+            }
+
+            .selected-package-price {
+                font-size: 17px;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                font-size: 12px;
+            }
+
+            .whatsapp-button {
+                padding: 14px 10px;
+
+                font-size: 12px;
+            }
+        }
+
+        /* =========================================
+           HP KECIL
+        ========================================= */
+
+        @media (max-width: 380px) {
+
+            .order-container {
+                width: 92%;
+            }
+
+            .order-title h1 {
+                font-size: 25px;
+            }
+
+            .order-card {
+                padding: 17px 13px;
+            }
+
+            .selected-package h2 {
+                font-size: 17px;
+            }
+        }
+
+        /* =========================================
+           TOUCH
+        ========================================= */
+
+        @media (hover: none) {
+
+            .whatsapp-button:hover {
+                transform: none;
+            }
+        }
+    </style>
 </head>
-
 
 <body>
 
-    <div class="page package-page">
+<div class="page">
+
+    <!-- ORNAMEN -->
+
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+
+    <div class="star star-one">✦</div>
+    <div class="star star-two">✧</div>
+    <div class="star star-three">✦</div>
 
 
-        <!-- ORNAMEN -->
+    <!-- HEADER -->
 
-        <div class="package-orb package-orb-one"></div>
+    <header class="header">
 
-        <div class="package-orb package-orb-two"></div>
+        <a href="index.html">
+            <img
+                src="logo-cio.png.jpeg"
+                alt="CIO Creative In One"
+                class="logo"
+            >
+        </a>
 
-        <div class="package-star package-star-one">
-            ✦
-        </div>
-
-        <div class="package-star package-star-two">
-            ✧
-        </div>
-
-        <div class="package-star package-star-three">
-            ✦
-        </div>
+    </header>
 
 
+    <!-- ORDER -->
 
-        <!-- HEADER -->
+    <main class="order-container">
 
-        <header class="header">
+        <div class="order-title">
 
-            <a href="index.html">
-
-                <img
-                    src="logo-cio.png.jpeg"
-                    alt="CIO Creative In One"
-                    class="logo"
-                >
-
-            </a>
-
-        </header>
-
-
-
-        <!-- CONTENT -->
-
-        <main class="package-container">
-
-
-            <div class="package-badge">
-
-                <span>✦</span>
-
-                CIO CREATIVE
-
-                <span>✦</span>
-
+            <div class="badge">
+                ✦ CIO CREATIVE ✦
             </div>
 
+            <h1>Order Jasa</h1>
+
+            <p>
+                Lengkapi data pesananmu di bawah.
+            </p>
+
+        </div>
 
 
-            <div class="package-title">
-
-                <p class="package-subtitle">
-                    Kamu memilih
-                </p>
-
-                <h1 id="serviceTitle">
-                    Pilih Paket
-                </h1>
-
-                <p>
-                    Pilih paket yang sesuai
-                    dengan kebutuhanmu.
-                </p>
-
-            </div>
-
+        <section class="order-card">
 
 
             <!-- PAKET -->
 
-            <div
-                class="package-grid"
-                id="packageGrid"
-            ></div>
+            <div class="selected-package">
+
+                <span class="selected-package-label">
+                    PAKET YANG DIPILIH
+                </span>
+
+                <div
+                    class="selected-package-service"
+                    id="serviceName"
+                >
+                    JASA
+                </div>
+
+                <h2 id="packageName">
+                    Memuat paket...
+                </h2>
+
+                <strong
+                    class="selected-package-price"
+                    id="packagePrice"
+                >
+                    -
+                </strong>
+
+            </div>
 
 
+            <!-- FORM -->
 
-            <!-- KEMBALI -->
+            <form id="orderForm">
+
+                <div class="form-group">
+
+                    <label for="nama">
+                        Nama
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nama"
+                        placeholder="Masukkan nama kamu"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="whatsapp">
+                        Nomor WhatsApp
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="whatsapp"
+                        placeholder="08xxxxxxxxxx"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="catatan">
+                        Detail Pesanan
+                    </label>
+
+                    <textarea
+                        id="catatan"
+                        placeholder="Jelaskan konsep, ukuran, durasi, atau kebutuhan lainnya..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="whatsapp-button"
+                >
+                    💬 Kirim Pesanan ke WhatsApp
+                </button>
+
+            </form>
+
 
             <a
                 href="pesan.html"
-                class="package-back"
+                class="back-button"
             >
                 ← Kembali ke Pilih Jasa
             </a>
 
+        </section>
 
-        </main>
-
-
-
-        <!-- FOOTER -->
-
-        <footer>
-
-            <span>✦</span>
-
-            CIO — Creative In One
-
-            <span>✦</span>
-
-        </footer>
+    </main>
 
 
-    </div>
+    <!-- FOOTER -->
 
+    <footer>
+        ✦ <span>CIO</span> — Creative In One ✦
+    </footer>
+
+</div>
 
 
 <script>
 
+    /* =========================================
+       BACA DATA DARI LINK
+    ========================================= */
 
-/* =========================================
-   AMBIL JASA
-========================================= */
-
-const params =
-    new URLSearchParams(
+    const params = new URLSearchParams(
         window.location.search
     );
 
+    const jasa =
+        params.get("jasa") || "Jasa";
 
-const jasa =
-    params.get("jasa") || "video";
+    const paket =
+        params.get("paket") || "Paket";
 
+    const harga =
+        params.get("harga") || "-";
 
 
-/* =========================================
-   DATA PAKET CIO
-========================================= */
+    /* =========================================
+       TAMPILKAN DATA
+    ========================================= */
 
-const packages = {
+    document.getElementById("serviceName")
+        .textContent = jasa;
 
+    document.getElementById("packageName")
+        .textContent = paket;
 
-    /* =====================================
-       VIDEO
-    ===================================== */
+    document.getElementById("packagePrice")
+        .textContent = harga;
 
-    video: {
 
-        title: "Edit Video",
+    /* =========================================
+       FORM → WHATSAPP
+    ========================================= */
 
-        icon: "🎬",
+    document.getElementById("orderForm")
+        .addEventListener("submit", function(event) {
 
-        items: [
+            event.preventDefault();
 
-            {
-                name: "Video Pendek",
 
-                price: "Rp25.000",
+            const nama =
+                document.getElementById("nama")
+                    .value
+                    .trim();
 
-                desc:
-                    "Maks. 30 detik • Cutting, musik, teks sederhana, dan transisi dasar",
 
-                duration:
-                    "Estimasi: 1 hari"
-            },
+            const whatsapp =
+                document.getElementById("whatsapp")
+                    .value
+                    .trim();
 
 
-            {
-                name: "Basic",
+            const catatan =
+                document.getElementById("catatan")
+                    .value
+                    .trim();
 
-                price: "Rp40.000",
 
-                desc:
-                    "Maks. 60 detik • Cutting, musik, teks, transisi, SFX sederhana, dan color correction",
+            /*
+                =====================================
+                GANTI NOMOR WHATSAPP CIO DI SINI
+                =====================================
 
-                duration:
-                    "Estimasi: 1–2 hari"
-            },
+                Contoh:
 
+                const nomorCIO = "6281234567890";
 
-            {
-                name: "Standard",
+                Jangan menggunakan:
+                081234567890
 
-                price: "Rp70.000",
+                Gunakan:
+                6281234567890
+            */
 
-                desc:
-                    "Maks. 2 menit • Subtitle, beat sync, SFX, color grading, dan transisi lebih detail",
+            const nomorCIO = "628XXXXXXXXXX";
 
-                duration:
-                    "Estimasi: 2–3 hari"
-            },
 
+            const pesan =
+`Halo CIO Creative In One 👋
 
-            {
-                name: "Premium",
+Saya ingin memesan jasa:
 
-                price: "Rp100.000",
+Jasa: ${jasa}
+Paket: ${paket}
+Harga: ${harga}
 
-                desc:
-                    "Maks. 3 menit • Sound design, color grading detail, serta efek dan transisi kompleks",
+Nama: ${nama}
+Nomor WhatsApp: ${whatsapp}
 
-                duration:
-                    "Estimasi: 3–4 hari"
-            }
+Detail Pesanan:
+${catatan}`;
 
-        ]
 
-    },
+            const whatsappURL =
+                "https://wa.me/" +
+                nomorCIO +
+                "?text=" +
+                encodeURIComponent(pesan);
 
 
+            window.open(
+                whatsappURL,
+                "_blank"
+            );
 
-    /* =====================================
-       FOTO
-    ===================================== */
-
-    foto: {
-
-        title: "Edit Foto",
-
-        icon: "📷",
-
-        items: [
-
-            {
-                name: "Basic",
-
-                price: "Rp25.000",
-
-                desc:
-                    "Per foto • Crop, resize, brightness, contrast, saturation, dan basic color correction",
-
-                duration:
-                    "Estimasi: 1 hari"
-            },
-
-
-            {
-                name: "Standard",
-
-                price: "Rp40.000",
-
-                desc:
-                    "Per foto • Retouch wajah ringan, remove objek sederhana, background cleanup, dan color grading",
-
-                duration:
-                    "Estimasi: 1–2 hari"
-            },
-
-
-            {
-                name: "Premium",
-
-                price: "Rp70.000",
-
-                desc:
-                    "Per foto • Manipulasi foto, penggantian background, retouch detail, compositing, dan efek kreatif",
-
-                duration:
-                    "Estimasi: 2–3 hari"
-            }
-
-        ]
-
-    },
-
-
-
-    /* =====================================
-       PPT
-    ===================================== */
-
-    ppt: {
-
-        title: "PPT / Dokumen",
-
-        icon: "📊",
-
-        items: [
-
-            {
-                name: "Basic",
-
-                price: "Rp5.000/slide",
-
-                desc:
-                    "Layout rapi, font, warna, gambar, icon, dan template sederhana",
-
-                duration:
-                    "Estimasi: 1–2 hari"
-            },
-
-
-            {
-                name: "Standard",
-
-                price: "Rp10.000/slide",
-
-                desc:
-                    "Custom layout, infographic sederhana, icon, diagram, tabel, dan transisi",
-
-                duration:
-                    "Estimasi: 2–4 hari"
-            },
-
-
-            {
-                name: "Premium",
-
-                price: "Rp20.000/slide",
-
-                desc:
-                    "Custom design, infographic kompleks, animasi, motion, diagram, dan visual storytelling",
-
-                duration:
-                    "Estimasi: 4–7 hari"
-            }
-
-        ]
-
-    },
-
-
-
-    /* =====================================
-       POSTER
-    ===================================== */
-
-    poster: {
-
-        title: "Poster / Pamflet",
-
-        icon: "🎨",
-
-        items: [
-
-            {
-                name: "Basic",
-
-                price: "Rp30.000",
-
-                desc:
-                    "Layout sederhana, teks, foto, warna, dan beberapa elemen grafis",
-
-                duration:
-                    "Estimasi: 1–2 hari"
-            },
-
-
-            {
-                name: "Standard",
-
-                price: "Rp60.000",
-
-                desc:
-                    "Desain custom, typography, icon, shape, color grading, dan layout profesional",
-
-                duration:
-                    "Estimasi: 2–3 hari"
-            },
-
-
-            {
-                name: "Premium",
-
-                price: "Rp100.000",
-
-                desc:
-                    "Konsep custom, manipulasi foto, ilustrasi/elemen kompleks, visual hierarchy, dan detail tinggi",
-
-                duration:
-                    "Estimasi: 3–5 hari"
-            }
-
-        ]
-
-    }
-
-};
-
-
-
-/* =========================================
-   TAMPILKAN JASA
-========================================= */
-
-const selected =
-    packages[jasa] || packages.video;
-
-
-document.getElementById(
-    "serviceTitle"
-).textContent =
-    selected.icon +
-    " " +
-    selected.title;
-
-
-
-const packageGrid =
-    document.getElementById(
-        "packageGrid"
-    );
-
-
-
-/* =========================================
-   BUAT KARTU PAKET
-========================================= */
-
-selected.items.forEach(
-    function(item) {
-
-
-        const card =
-            document.createElement("a");
-
-
-        card.className =
-            "package-card";
-
-
-        /*
-         * Harga dikirim ke halaman detail
-         * agar sistem lama tetap bisa
-         * membaca parameter harga.
-         */
-
-        card.href =
-            "detail.html" +
-            "?jasa=" +
-            encodeURIComponent(jasa) +
-            "&paket=" +
-            encodeURIComponent(item.name) +
-            "&harga=" +
-            encodeURIComponent(item.price);
-
-
-
-        card.innerHTML = `
-
-            <div class="package-icon">
-                ${selected.icon}
-            </div>
-
-
-            <div class="package-label">
-                PAKET
-            </div>
-
-
-            <h2>
-                ${item.name}
-            </h2>
-
-
-            <div class="package-price">
-                ${item.price}
-            </div>
-
-
-            <p>
-                ${item.desc}
-            </p>
-
-
-            <small
-                style="
-                    display:block;
-                    margin-top:10px;
-                    opacity:0.7;
-                "
-            >
-                ${item.duration}
-            </small>
-
-
-            <div class="package-select">
-                Pilih Paket →
-            </div>
-
-        `;
-
-
-        packageGrid.appendChild(card);
-
-    }
-);
+        });
 
 </script>
 
-
 </body>
-
 </html>
-```
