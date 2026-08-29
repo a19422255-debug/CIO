@@ -12,22 +12,44 @@
 
 html {
     scroll-behavior: smooth;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 body {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+
     font-family: Arial, Helvetica, sans-serif;
+
     background: #061a32;
     color: #f5f1e8;
-    min-height: 100vh;
+
+    overflow-x: hidden;
 }
 
 a {
     color: inherit;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
 .page {
     position: relative;
+
+    width: 100%;
     min-height: 100vh;
+
     overflow: hidden;
 
     background:
@@ -57,15 +79,18 @@ a {
     justify-content: center;
     align-items: center;
 
+    width: 100%;
+
     padding: 28px 20px 8px;
 }
 
 .logo {
+    display: block;
+
     width: 82px;
     height: 82px;
 
     object-fit: contain;
-    display: block;
 
     border-radius: 50%;
 }
@@ -84,7 +109,6 @@ a {
     height: 240px;
 
     border: 1px solid rgba(212, 175, 55, .13);
-
     border-radius: 50%;
 
     pointer-events: none;
@@ -112,7 +136,6 @@ a {
     z-index: 1;
 
     color: #d4af37;
-
     opacity: .55;
 
     pointer-events: none;
@@ -179,19 +202,18 @@ a {
     gap: 9px;
 
     width: fit-content;
+    max-width: 100%;
 
     margin: 0 auto;
 
     padding: 8px 16px;
 
     border: 1px solid rgba(212, 175, 55, .45);
-
     border-radius: 50px;
 
     color: #d4af37;
 
     font-size: 9px;
-
     letter-spacing: 2px;
 
     white-space: nowrap;
@@ -210,7 +232,6 @@ a {
     color: #9aa7b8;
 
     font-size: 11px;
-
     letter-spacing: 4px;
 
     font-weight: 600;
@@ -221,10 +242,9 @@ a {
 
     color: #d4af37;
 
-    font-size: clamp(55px, 10vw, 82px);
+    font-size: clamp(48px, 10vw, 82px);
 
     line-height: .95;
-
     letter-spacing: 2px;
 }
 
@@ -265,10 +285,12 @@ a {
     display: flex;
 
     flex-direction: column;
+    align-items: center;
 
     gap: 12px;
 
-    width: min(100%, 430px);
+    width: 100%;
+    max-width: 430px;
 
     margin: 30px auto 0;
 }
@@ -276,7 +298,7 @@ a {
 .main-button {
     display: grid;
 
-    grid-template-columns: 42px 1fr 28px;
+    grid-template-columns: 42px minmax(0, 1fr) 28px;
 
     align-items: center;
 
@@ -289,7 +311,6 @@ a {
     padding: 12px 15px;
 
     border: 1px solid rgba(212, 175, 55, .35);
-
     border-radius: 15px;
 
     background:
@@ -414,7 +435,6 @@ a {
     color: #718095;
 
     font-size: 9px;
-
     letter-spacing: 2px;
 
     white-space: nowrap;
@@ -426,6 +446,8 @@ a {
     grid-template-columns: repeat(4, 1fr);
 
     gap: 10px;
+
+    width: 100%;
 }
 
 .info-item {
@@ -434,7 +456,6 @@ a {
     flex-direction: column;
 
     align-items: center;
-
     justify-content: center;
 
     gap: 8px;
@@ -444,7 +465,6 @@ a {
     padding: 10px 6px;
 
     border: 1px solid rgba(212, 175, 55, .18);
-
     border-radius: 13px;
 
     background: rgba(8, 29, 54, .70);
@@ -472,6 +492,8 @@ a {
     color: #b8c1ce;
 
     font-size: 10px;
+
+    text-align: center;
 }
 
 
@@ -481,7 +503,6 @@ a {
 
 .service-container {
     position: relative;
-
     z-index: 3;
 
     width: min(92%, 850px);
@@ -518,9 +539,11 @@ a {
 .service-grid {
     display: grid;
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
     gap: 16px;
+
+    width: 100%;
 }
 
 .service-card {
@@ -532,12 +555,12 @@ a {
 
     gap: 15px;
 
+    min-width: 0;
     min-height: 145px;
 
     padding: 20px;
 
     border: 1px solid rgba(212, 175, 55, .28);
-
     border-radius: 17px;
 
     background:
@@ -549,7 +572,8 @@ a {
 
     text-decoration: none;
 
-    box-shadow: 0 12px 30px rgba(0, 0, 0, .20);
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, .20);
 
     transition: .25s ease;
 }
@@ -594,7 +618,6 @@ a {
     color: #d4af37;
 
     font-size: 9px;
-
     letter-spacing: 1.5px;
 }
 
@@ -602,6 +625,8 @@ a {
     color: #f5f1e8;
 
     font-size: 18px;
+
+    overflow-wrap: anywhere;
 }
 
 .service-card p {
@@ -612,9 +637,13 @@ a {
     font-size: 11px;
 
     line-height: 1.5;
+
+    overflow-wrap: anywhere;
 }
 
 .service-arrow {
+    flex-shrink: 0;
+
     color: #d4af37;
 
     font-size: 22px;
@@ -622,12 +651,11 @@ a {
 
 
 /* =========================================================
-   ORDER / DETAIL
+   DETAIL / ORDER
 ========================================================= */
 
 .detail-container {
     position: relative;
-
     z-index: 3;
 
     width: min(92%, 650px);
@@ -658,10 +686,11 @@ a {
 }
 
 .detail-card {
+    width: 100%;
+
     padding: 25px;
 
     border: 1px solid rgba(212, 175, 55, .3);
-
     border-radius: 18px;
 
     background:
@@ -694,12 +723,14 @@ a {
 .form-group input,
 .form-group textarea,
 .form-group select {
+    display: block;
+
     width: 100%;
+    max-width: 100%;
 
     padding: 12px 13px;
 
     border: 1px solid rgba(212, 175, 55, .22);
-
     border-radius: 9px;
 
     outline: none;
@@ -738,7 +769,6 @@ a {
     padding: 14px;
 
     border: none;
-
     border-radius: 10px;
 
     background: #d4af37;
@@ -769,7 +799,6 @@ a {
 
 .pickup-container {
     position: relative;
-
     z-index: 3;
 
     width: min(92%, 650px);
@@ -812,10 +841,11 @@ a {
 }
 
 .pickup-card {
+    width: 100%;
+
     padding: 28px 25px;
 
     border: 1px solid rgba(212, 175, 55, .4);
-
     border-radius: 18px;
 
     background:
@@ -843,7 +873,6 @@ a {
     margin: 0 auto 18px;
 
     border: 1px solid rgba(212, 175, 55, .5);
-
     border-radius: 17px;
 
     background: #071a32;
@@ -858,9 +887,10 @@ a {
 }
 
 .pickup-card > p {
-    margin: 9px auto 25px;
-
+    width: 100%;
     max-width: 470px;
+
+    margin: 9px auto 25px;
 
     color: #aeb9c8;
 
@@ -886,10 +916,11 @@ a {
 
     gap: 13px;
 
+    min-width: 0;
+
     padding: 13px;
 
     border: 1px solid rgba(255, 255, 255, .07);
-
     border-radius: 11px;
 
     background: rgba(4, 17, 33, .45);
@@ -944,12 +975,13 @@ a {
 
     gap: 12px;
 
+    min-width: 0;
+
     margin-top: 18px;
 
     padding: 15px;
 
     border: 1px solid rgba(212, 175, 55, .22);
-
     border-radius: 12px;
 
     background: rgba(212, 175, 55, .05);
@@ -963,10 +995,10 @@ a {
     align-items: center;
     justify-content: center;
 
+    flex-shrink: 0;
+
     width: 40px;
     height: 40px;
-
-    flex-shrink: 0;
 
     border-radius: 10px;
 
@@ -993,6 +1025,8 @@ a {
     font-size: 10px;
 
     line-height: 1.5;
+
+    overflow-wrap: anywhere;
 }
 
 .pickup-button {
@@ -1033,6 +1067,7 @@ a {
     display: block;
 
     width: fit-content;
+    max-width: 100%;
 
     margin: 22px auto 0;
 
@@ -1041,6 +1076,175 @@ a {
     font-size: 12px;
 
     text-decoration: none;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   PACKAGE PAGE
+========================================================= */
+
+.package-page {
+    position: relative;
+
+    width: 100%;
+    max-width: 100%;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+}
+
+.package-container {
+    position: relative;
+    z-index: 3;
+
+    width: min(92%, 1100px);
+
+    margin: 0 auto;
+
+    padding: 15px 0 50px;
+}
+
+.package-title {
+    width: 100%;
+
+    margin: 20px auto 30px;
+
+    text-align: center;
+}
+
+.package-title h1 {
+    color: #f5f1e8;
+
+    font-size: clamp(30px, 5vw, 40px);
+
+    line-height: 1.15;
+}
+
+.package-title h1 span {
+    color: #d4af37;
+}
+
+.package-title p {
+    margin-top: 8px;
+
+    color: #9aa7b8;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+.package-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 16px;
+
+    width: 100%;
+}
+
+.package-card {
+    width: 100%;
+    min-width: 0;
+
+    padding: 25px;
+
+    border: 1px solid rgba(212, 175, 55, .28);
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0d2b4d,
+            #081d36
+        );
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, .20);
+
+    overflow: hidden;
+}
+
+.package-card h2 {
+    color: #f5f1e8;
+
+    font-size: 22px;
+
+    line-height: 1.2;
+
+    overflow-wrap: anywhere;
+}
+
+.package-card p {
+    margin-top: 8px;
+
+    color: #8997a9;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    overflow-wrap: anywhere;
+}
+
+.package-label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #d4af37;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+}
+
+.package-price {
+    margin-top: 15px;
+
+    color: #d4af37;
+
+    font-size: 25px;
+
+    font-weight: 700;
+}
+
+.package-select {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin-top: 15px;
+
+    padding: 11px 12px;
+
+    border: 1px solid rgba(212, 175, 55, .25);
+    border-radius: 9px;
+
+    background: #071a32;
+
+    color: #f5f1e8;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    outline: none;
+}
+
+.package-select:focus {
+    border-color: #d4af37;
+}
+
+.package-card * {
+    max-width: 100%;
+
+    box-sizing: border-box;
 }
 
 
@@ -1050,8 +1254,9 @@ a {
 
 footer {
     position: relative;
-
     z-index: 5;
+
+    width: 100%;
 
     padding: 18px 20px 25px;
 
@@ -1078,7 +1283,11 @@ footer span {
 @media (max-width: 800px) {
 
     .home-container {
-        width: min(90%, 600px);
+        width: 90%;
+    }
+
+    .service-container {
+        width: 90%;
     }
 
     .service-grid {
@@ -1087,20 +1296,30 @@ footer span {
 
     .service-card {
         min-height: 135px;
+
         padding: 17px;
     }
 
+    .package-container {
+        width: 92%;
+    }
+
+    .package-grid {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 
 /* =========================================================
-   HP / MOBILE
+   MOBILE
 ========================================================= */
 
 @media (max-width: 600px) {
 
+    /* HEADER */
+
     .header {
-        padding-top: 20px;
+        padding: 20px 15px 6px;
     }
 
     .logo {
@@ -1108,16 +1327,22 @@ footer span {
         height: 70px;
     }
 
+
+    /* HOME */
+
     .home-container {
         width: 90%;
 
         padding-top: 10px;
+        padding-bottom: 35px;
     }
 
     .home-badge {
-        font-size: 8px;
+        max-width: 95%;
 
         padding: 7px 13px;
+
+        font-size: 8px;
 
         letter-spacing: 1.5px;
     }
@@ -1133,33 +1358,44 @@ footer span {
     }
 
     .welcome h1 {
-        font-size: 58px;
+        font-size: 48px;
+
+        letter-spacing: 1px;
     }
 
     .welcome h2 {
-        font-size: 21px;
+        font-size: 20px;
     }
 
     .welcome-description {
+        width: 100%;
+
         font-size: 12px;
 
         line-height: 1.7;
     }
 
+
+    /* BUTTON */
+
     .home-buttons {
         width: 100%;
 
         margin-top: 25px;
+
+        gap: 10px;
     }
 
     .main-button {
-        min-height: 65px;
+        width: 100%;
 
-        grid-template-columns: 40px 1fr 24px;
+        min-height: 62px;
+
+        grid-template-columns: 40px minmax(0, 1fr) 24px;
 
         gap: 10px;
 
-        padding: 11px 12px;
+        padding: 10px 12px;
 
         border-radius: 13px;
     }
@@ -1183,29 +1419,36 @@ footer span {
         font-size: 19px;
     }
 
+
+    /* SERVICES */
+
     .home-services {
+        width: 100%;
+
         margin-top: 27px;
     }
 
     .home-info {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
 
         gap: 9px;
     }
 
     .info-item {
-        min-height: 72px;
+        min-height: 70px;
 
         flex-direction: row;
 
         justify-content: flex-start;
 
-        padding: 9px 12px;
+        padding: 9px 10px;
 
         gap: 9px;
     }
 
     .info-icon {
+        flex-shrink: 0;
+
         width: 34px;
         height: 34px;
 
@@ -1213,18 +1456,30 @@ footer span {
     }
 
     .info-item span {
-        font-size: 10px;
+        font-size: 9px;
+
+        text-align: left;
     }
 
-    footer {
-        padding-top: 15px;
-    }
 
-
-    /* SERVICE */
+    /* SERVICE PAGE */
 
     .service-container {
         width: 90%;
+
+        padding-top: 10px;
+    }
+
+    .service-title {
+        margin: 18px auto 22px;
+    }
+
+    .service-title h1 {
+        font-size: 28px;
+    }
+
+    .service-title p {
+        font-size: 12px;
     }
 
     .service-grid {
@@ -1234,6 +1489,8 @@ footer span {
     }
 
     .service-card {
+        width: 100%;
+
         min-height: 105px;
 
         padding: 14px;
@@ -1273,6 +1530,20 @@ footer span {
 
     .detail-container {
         width: 90%;
+
+        padding-top: 10px;
+    }
+
+    .detail-title {
+        margin: 18px auto 22px;
+    }
+
+    .detail-title h1 {
+        font-size: 27px;
+    }
+
+    .detail-title p {
+        font-size: 12px;
     }
 
     .detail-card {
@@ -1286,6 +1557,20 @@ footer span {
 
     .pickup-container {
         width: 90%;
+
+        padding-top: 10px;
+    }
+
+    .pickup-title {
+        margin: 18px auto 22px;
+    }
+
+    .pickup-title h1 {
+        font-size: 27px;
+    }
+
+    .pickup-title span {
+        font-size: 12px;
     }
 
     .pickup-card {
@@ -1294,6 +1579,99 @@ footer span {
         border-radius: 15px;
     }
 
+    .pickup-card h2 {
+        font-size: 19px;
+    }
+
+    .pickup-card > p {
+        font-size: 11px;
+    }
+
+    .pickup-step {
+        gap: 10px;
+
+        padding: 11px;
+    }
+
+    .step-number {
+        width: 35px;
+        height: 35px;
+    }
+
+
+    /* PACKAGE */
+
+    .package-container {
+        width: 100%;
+
+        margin: 0;
+
+        padding: 15px 16px 40px;
+    }
+
+    .package-title {
+        margin: 18px auto 24px;
+    }
+
+    .package-title h1 {
+        font-size: 30px;
+
+        line-height: 1.15;
+
+        overflow-wrap: anywhere;
+    }
+
+    .package-title p {
+        font-size: 12px;
+
+        line-height: 1.6;
+    }
+
+    .package-grid {
+        grid-template-columns: 1fr;
+
+        gap: 13px;
+    }
+
+    .package-card {
+        width: 100%;
+        min-width: 0;
+
+        padding: 20px;
+
+        border-radius: 15px;
+    }
+
+    .package-card h2 {
+        font-size: 21px;
+
+        line-height: 1.2;
+    }
+
+    .package-card p {
+        font-size: 12px;
+
+        line-height: 1.55;
+    }
+
+    .package-price {
+        font-size: 23px;
+    }
+
+    .package-select {
+        width: 100%;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+        padding: 15px 15px 22px;
+
+        font-size: 9px;
+
+        line-height: 1.6;
+    }
 }
 
 
@@ -1316,31 +1694,39 @@ footer span {
         width: 92%;
     }
 
-    .welcome h1 {
-        font-size: 50px;
-    }
-
-    .welcome h2 {
-        font-size: 19px;
-    }
-
-    .welcome-description {
-        font-size: 11px;
-    }
-
     .home-badge {
         font-size: 7px;
 
         padding: 6px 11px;
     }
 
+    .welcome {
+        margin-top: 19px;
+    }
+
+    .welcome h1 {
+        font-size: 42px;
+    }
+
+    .welcome h2 {
+        font-size: 18px;
+    }
+
+    .welcome-description {
+        font-size: 11px;
+    }
+
     .main-button {
-        min-height: 61px;
+        min-height: 58px;
+
+        padding: 9px 10px;
     }
 
     .button-icon {
         width: 36px;
         height: 36px;
+
+        font-size: 15px;
     }
 
     .button-text strong {
@@ -1351,10 +1737,45 @@ footer span {
         font-size: 8px;
     }
 
+    .button-arrow {
+        font-size: 17px;
+    }
+
     .info-item {
         padding: 8px;
     }
 
+    .info-icon {
+        width: 32px;
+        height: 32px;
+
+        font-size: 15px;
+    }
+
+    .info-item span {
+        font-size: 8px;
+    }
+
+    .package-container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .package-card {
+        padding: 16px;
+    }
+
+    .package-card h2 {
+        font-size: 20px;
+    }
+
+    .package-card p {
+        font-size: 11px;
+    }
+
+    .package-price {
+        font-size: 21px;
+    }
 }
 
 
@@ -1378,294 +1799,26 @@ footer span {
     }
 
     .home-buttons {
-        width: 450px;
+        max-width: 450px;
     }
 
     .home-services {
         width: 520px;
     }
-
-}
-/* =========================================
-   HOME BUTTON RESPONSIVE FIX
-========================================= */
-
-.home-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-    width: 100%;
-}
-
-.main-button {
-    min-height: 54px;
-    width: min(100%, 360px);
-}
-
-.welcome-label {
-    margin-bottom: 6px;
-    color: #9aa7b8;
-    font-size: 12px;
-    letter-spacing: 3px;
-}
-
-.welcome h2 {
-    margin-top: 8px;
-    color: #f5f1e8;
-    font-size: clamp(18px, 4vw, 25px);
-    font-weight: 500;
-}
-
-@media (max-width: 600px) {
-
-    .home-container {
-        width: 90%;
-        padding-top: 12px;
-    }
-
-    .home-badge {
-        font-size: 9px;
-        padding: 7px 14px;
-    }
-
-    .welcome {
-        margin-top: 20px;
-    }
-
-    .welcome h1 {
-        font-size: 48px;
-    }
-
-    .welcome h2 {
-        font-size: 20px;
-    }
-
-    .welcome p {
-        font-size: 13px;
-        line-height: 1.7;
-    }
-
-    .main-button {
-        width: 100%;
-        max-width: 360px;
-        min-height: 56px;
-        padding: 16px 17px;
-    }
-
-    .home-info {
-        gap: 9px;
-        margin-top: 30px;
-    }
-
-    .info-item {
-        padding: 13px 6px;
-    }
-
-    .info-icon {
-        width: 38px;
-        height: 38px;
-        font-size: 18px;
-    }
-
-    .info-item span {
-        font-size: 9px;
-    }
-
-    footer {
-        padding: 18px 15px 25px;
-        line-height: 1.6;
-    }
 }
 
 
-@media (max-width: 380px) {
+/* =========================================================
+   TOUCH DEVICE
+   Supaya hover tidak bikin layout aneh di HP
+========================================================= */
 
-    .welcome h1 {
-        font-size: 42px;
+@media (hover: none) {
+
+    .main-button:hover,
+    .service-card:hover,
+    .whatsapp-button:hover,
+    .pickup-button:hover {
+        transform: none;
     }
-
-    .welcome h2 {
-        font-size: 18px;
-    }
-
-    .welcome p {
-        font-size: 12px;
-    }
-
-    .main-button {
-        min-height: 52px;
-    }
-
-    .home-info {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-}
-/* =========================================
-   FIX MOBILE — CIO PACKAGE PAGE
-========================================= */
-
-html,
-body {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
-
-.package-page {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    overflow-x: hidden;
-}
-
-.package-container {
-    width: 100%;
-    max-width: 1100px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
-    box-sizing: border-box;
-}
-
-.package-grid {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    box-sizing: border-box;
-}
-
-.package-card {
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
-    box-sizing: border-box;
-}
-
-.package-card * {
-    max-width: 100%;
-    box-sizing: border-box;
-}
-
-@media (max-width: 650px) {
-
-    .package-page {
-        width: 100vw;
-        max-width: 100vw;
-        min-width: 0;
-        overflow-x: hidden;
-    }
-
-    .package-container {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-        padding: 20px 16px 40px;
-        box-sizing: border-box;
-    }
-
-    .package-title {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-    }
-
-    .package-title h1 {
-        width: 100%;
-        max-width: 100%;
-        font-size: clamp(30px, 8vw, 40px);
-        line-height: 1.15;
-        overflow-wrap: anywhere;
-        word-break: break-word;
-    }
-
-    .package-title p {
-        width: 100%;
-        max-width: 100%;
-        overflow-wrap: anywhere;
-        word-break: break-word;
-    }
-
-    .package-grid {
-        width: 100%;
-        max-width: 100%;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 14px;
-        margin: 0;
-    }
-
-    .package-card {
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-        margin: 0;
-        padding: 20px;
-        overflow: hidden;
-    }
-
-    .package-card h2,
-    .package-card p,
-    .package-price,
-    .package-label,
-    .package-select {
-        max-width: 100%;
-        overflow-wrap: anywhere;
-        word-break: break-word;
-    }
-
-    .package-card h2 {
-        font-size: 23px;
-        line-height: 1.2;
-    }
-
-    .package-card p {
-        font-size: 14px;
-        line-height: 1.55;
-    }
-
-    .package-price {
-        font-size: 24px;
-    }
-
-    .package-back {
-        max-width: 100%;
-        overflow-wrap: anywhere;
-        word-break: break-word;
-    }
-
-    .package-orb,
-    .package-star {
-        pointer-events: none;
-    }
-}
-
-
-/* =========================================
-   HP KECIL
-========================================= */
-
-@media (max-width: 380px) {
-
-    .package-container {
-        padding-left: 12px;
-        padding-right: 12px;
-    }
-
-    .package-card {
-        padding: 16px;
-    }
-
-    .package-card h2 {
-        font-size: 21px;
-    }
-
-    .package-card p {
-        font-size: 13px;
-    }
-
 }
