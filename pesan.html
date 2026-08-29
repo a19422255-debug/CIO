@@ -1,62 +1,678 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <title>Pilih Jasa — CIO Creative In One</title>
 
-    <meta
-        name="description"
-        content="Pilih layanan kreatif CIO Creative In One."
-    >
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    <title>Pesan Jasa — CIO Creative</title>
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+        body {
+            width: 100%;
+            min-height: 100vh;
 
+            font-family: Arial, Helvetica, sans-serif;
+
+            background: #061a32;
+            color: #f5f1e8;
+
+            overflow-x: hidden;
+        }
+
+        /* =========================================
+           PAGE
+        ========================================= */
+
+        .page {
+            position: relative;
+
+            width: 100%;
+            min-height: 100vh;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(212, 175, 55, .10),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 90% 90%,
+                    rgba(212, 175, 55, .08),
+                    transparent 25%
+                ),
+                #061a32;
+        }
+
+        /* =========================================
+           ORNAMEN
+        ========================================= */
+
+        .orb {
+            position: absolute;
+
+            width: 240px;
+            height: 240px;
+
+            border: 1px solid rgba(212, 175, 55, .13);
+
+            border-radius: 50%;
+
+            pointer-events: none;
+        }
+
+        .orb-one {
+            top: -130px;
+            left: -120px;
+        }
+
+        .orb-two {
+            right: -130px;
+            bottom: -130px;
+        }
+
+        .star {
+            position: absolute;
+
+            color: #d4af37;
+
+            opacity: .55;
+
+            pointer-events: none;
+        }
+
+        .star-one {
+            top: 190px;
+            left: 8%;
+
+            font-size: 22px;
+        }
+
+        .star-two {
+            top: 360px;
+            right: 8%;
+
+            font-size: 17px;
+        }
+
+        .star-three {
+            bottom: 150px;
+            left: 13%;
+
+            font-size: 13px;
+        }
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        .header {
+            position: relative;
+            z-index: 5;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 25px 20px 5px;
+        }
+
+        .logo {
+            display: block;
+
+            width: 78px;
+            height: 78px;
+
+            object-fit: contain;
+
+            border-radius: 50%;
+        }
+
+        /* =========================================
+           CONTAINER
+        ========================================= */
+
+        .service-container {
+            position: relative;
+
+            z-index: 3;
+
+            width: min(92%, 850px);
+
+            margin: 0 auto;
+
+            padding: 15px 0 50px;
+        }
+
+        /* =========================================
+           TITLE
+        ========================================= */
+
+        .service-title {
+            margin: 20px auto 30px;
+
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 7px 14px;
+
+            border: 1px solid rgba(212, 175, 55, .45);
+
+            border-radius: 50px;
+
+            color: #d4af37;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            white-space: nowrap;
+        }
+
+        .service-title h1 {
+            margin-top: 17px;
+
+            color: #f5f1e8;
+
+            font-size: clamp(28px, 5vw, 36px);
+
+            line-height: 1.15;
+        }
+
+        .service-title h1 span {
+            color: #d4af37;
+        }
+
+        .service-title p {
+            margin-top: 8px;
+
+            color: #9aa7b8;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+        }
+
+        /* =========================================
+           SERVICE GRID
+        ========================================= */
+
+        .service-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 16px;
+        }
+
+        /* =========================================
+           SERVICE CARD
+        ========================================= */
+
+        .service-card {
+            position: relative;
+
+            display: flex;
+
+            flex-direction: column;
+
+            width: 100%;
+
+            min-width: 0;
+
+            padding: 20px;
+
+            border: 1px solid rgba(212, 175, 55, .28);
+
+            border-radius: 17px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #0d2b4d,
+                    #081d36
+                );
+
+            box-shadow:
+                0 12px 30px rgba(0, 0, 0, .20);
+
+            overflow: hidden;
+        }
+
+        /* =========================================
+           SERVICE HEADER
+        ========================================= */
+
+        .service-head {
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            margin-bottom: 20px;
+        }
+
+        .service-icon {
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            width: 58px;
+            height: 58px;
+
+            border-radius: 14px;
+
+            background: #071a32;
+
+            border: 1px solid rgba(212, 175, 55, .35);
+
+            font-size: 27px;
+        }
+
+        .service-head-text {
+            min-width: 0;
+        }
+
+        .service-label {
+            display: block;
+
+            margin-bottom: 4px;
+
+            color: #d4af37;
+
+            font-size: 8px;
+
+            letter-spacing: 1.5px;
+        }
+
+        .service-card h2 {
+            color: #f5f1e8;
+
+            font-size: 20px;
+
+            line-height: 1.2;
+        }
+
+        /* =========================================
+           PACKAGE
+        ========================================= */
+
+        .package-list {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 10px;
+        }
+
+        .package {
+            display: block;
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: 1px solid rgba(212, 175, 55, .16);
+
+            border-radius: 12px;
+
+            background: rgba(4, 17, 33, .45);
+
+            color: inherit;
+
+            text-decoration: none;
+
+            transition:
+                transform .22s ease,
+                border-color .22s ease,
+                background .22s ease;
+        }
+
+        .package:hover {
+            transform: translateY(-2px);
+
+            border-color: rgba(212, 175, 55, .65);
+
+            background: rgba(13, 43, 77, .75);
+        }
+
+        .package-top {
+            display: flex;
+
+            align-items: flex-start;
+
+            justify-content: space-between;
+
+            gap: 12px;
+        }
+
+        .package-name {
+            min-width: 0;
+
+            color: #f5f1e8;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            line-height: 1.3;
+
+            overflow-wrap: anywhere;
+        }
+
+        .package-price {
+            flex-shrink: 0;
+
+            color: #d4af37;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            text-align: right;
+
+            white-space: nowrap;
+        }
+
+        .package-desc {
+            margin-top: 6px;
+
+            color: #8997a9;
+
+            font-size: 10px;
+
+            line-height: 1.55;
+        }
+
+        .package-estimate {
+            display: block;
+
+            margin-top: 7px;
+
+            color: #6f7f93;
+
+            font-size: 9px;
+        }
+
+        .package-arrow {
+            display: block;
+
+            margin-top: 9px;
+
+            color: #d4af37;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            text-align: right;
+        }
+
+        /* =========================================
+           NOTE
+        ========================================= */
+
+        .service-note {
+            margin-top: 12px;
+
+            padding-top: 11px;
+
+            border-top: 1px solid rgba(255, 255, 255, .06);
+
+            color: #68788d;
+
+            font-size: 9px;
+
+            line-height: 1.55;
+        }
+
+        /* =========================================
+           BACK
+        ========================================= */
+
+        .back-button {
+            display: block;
+
+            width: fit-content;
+
+            margin: 25px auto 0;
+
+            color: #d4af37;
+
+            font-size: 12px;
+
+            text-decoration: none;
+        }
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            position: relative;
+
+            z-index: 5;
+
+            padding: 18px 15px 25px;
+
+            color: #718095;
+
+            font-size: 10px;
+
+            text-align: center;
+
+            line-height: 1.7;
+        }
+
+        footer span {
+            margin: 0 4px;
+
+            color: #d4af37;
+        }
+
+        /* =========================================
+           TABLET
+        ========================================= */
+
+        @media (max-width: 800px) {
+
+            .service-container {
+                width: 90%;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 600px) {
+
+            .header {
+                padding-top: 18px;
+            }
+
+            .logo {
+                width: 68px;
+                height: 68px;
+            }
+
+            .service-container {
+                width: 90%;
+
+                padding-top: 8px;
+            }
+
+            .service-title {
+                margin-top: 18px;
+
+                margin-bottom: 23px;
+            }
+
+            .service-title h1 {
+                font-size: 28px;
+            }
+
+            .service-title p {
+                font-size: 12px;
+            }
+
+            .service-grid {
+                gap: 12px;
+            }
+
+            .service-card {
+                padding: 15px;
+
+                border-radius: 14px;
+            }
+
+            .service-head {
+                gap: 11px;
+
+                margin-bottom: 15px;
+            }
+
+            .service-icon {
+                width: 48px;
+                height: 48px;
+
+                border-radius: 11px;
+
+                font-size: 22px;
+            }
+
+            .service-card h2 {
+                font-size: 17px;
+            }
+
+            .package {
+                padding: 13px;
+            }
+
+            .package-name {
+                font-size: 13px;
+            }
+
+            .package-price {
+                font-size: 13px;
+            }
+
+            .package-desc {
+                font-size: 9px;
+            }
+
+            .package-estimate {
+                font-size: 8px;
+            }
+
+            .package-arrow {
+                font-size: 9px;
+            }
+        }
+
+        /* =========================================
+           HP KECIL
+        ========================================= */
+
+        @media (max-width: 380px) {
+
+            .service-container {
+                width: 92%;
+            }
+
+            .service-card {
+                padding: 13px;
+            }
+
+            .service-icon {
+                width: 44px;
+                height: 44px;
+
+                font-size: 20px;
+            }
+
+            .service-card h2 {
+                font-size: 16px;
+            }
+
+            .package {
+                padding: 12px;
+            }
+
+            .package-name {
+                font-size: 12px;
+            }
+
+            .package-price {
+                font-size: 12px;
+            }
+        }
+
+        /* =========================================
+           TOUCH DEVICE
+        ========================================= */
+
+        @media (hover: none) {
+
+            .package:hover {
+                transform: none;
+            }
+        }
+    </style>
 </head>
-
 
 <body>
 
-<div class="page service-page">
-
+<div class="page">
 
     <!-- ORNAMEN -->
 
-    <div class="package-orb package-orb-one"></div>
-    <div class="package-orb package-orb-two"></div>
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
 
-    <div class="package-star package-star-one">
-        ✦
-    </div>
-
-    <div class="package-star package-star-two">
-        ✧
-    </div>
-
-    <div class="package-star package-star-three">
-        ✦
-    </div>
+    <div class="star star-one">✦</div>
+    <div class="star star-two">✧</div>
+    <div class="star star-three">✦</div>
 
 
     <!-- HEADER -->
 
     <header class="header">
 
-        <img
-            src="logo-cio.png.jpeg"
-            alt="Logo CIO Creative In One"
-            class="logo"
-        >
+        <a href="index.html">
+            <img
+                src="logo-cio.png.jpeg"
+                alt="CIO Creative In One"
+                class="logo"
+            >
+        </a>
 
     </header>
 
@@ -65,174 +681,616 @@
 
     <main class="service-container">
 
-
-        <!-- BADGE -->
-
-        <div class="home-badge">
-
-            <span>✦</span>
-
-            CIO CREATIVE
-
-            <span>✦</span>
-
-        </div>
-
-
-        <!-- TITLE -->
-
         <section class="service-title">
 
+            <div class="badge">
+                ✦ CIO CREATIVE ✦
+            </div>
+
             <h1>
-                Order <span>Sekarang</span>
+                Pilih <span>Jasa</span>
             </h1>
 
             <p>
-                Pilih layanan yang kamu butuhkan.
+                Pilih layanan dan paket yang sesuai dengan kebutuhanmu.
             </p>
 
         </section>
 
 
-        <!-- SERVICE GRID -->
-
         <section class="service-grid">
 
 
-            <!-- VIDEO -->
+            <!-- =====================================
+                 VIDEO
+            ====================================== -->
 
-            <a
-                href="order.html?jasa=video"
-                class="service-card"
-            >
+            <article class="service-card">
 
-                <div class="service-icon">
-                    🎬
-                </div>
+                <div class="service-head">
 
-                <div class="service-content">
+                    <div class="service-icon">
+                        🎬
+                    </div>
 
-                    <span class="service-label">
-                        CREATIVE SERVICE
-                    </span>
+                    <div class="service-head-text">
 
-                    <h2>
-                        Edit Video
-                    </h2>
+                        <span class="service-label">
+                            JASA
+                        </span>
 
-                    <p>
-                        Edit video sesuai kebutuhanmu.
-                    </p>
+                        <h2>
+                            Video Editing
+                        </h2>
 
-                </div>
-
-                <div class="service-arrow">
-                    →
-                </div>
-
-            </a>
-
-
-            <!-- FOTO -->
-
-            <a
-                href="order.html?jasa=foto"
-                class="service-card"
-            >
-
-                <div class="service-icon">
-                    📷
-                </div>
-
-                <div class="service-content">
-
-                    <span class="service-label">
-                        CREATIVE SERVICE
-                    </span>
-
-                    <h2>
-                        Edit Foto
-                    </h2>
-
-                    <p>
-                        Buat foto jadi lebih menarik.
-                    </p>
+                    </div>
 
                 </div>
 
-                <div class="service-arrow">
-                    →
+
+                <div class="package-list">
+
+
+                    <a
+                        class="package"
+                        href="order.html?jasa=Video%20Editing&paket=Video%20Pendek&harga=Rp25.000"
+                    >
+
+                        <div class="package-top">
+
+                            <span class="package-name">
+                                Video Pendek
+                            </span>
+
+                            <span class="package-price">
+                                Rp25.000
+                            </span>
+
+                        </div>
+
+                        <p class="package-desc">
+                            Maks. 30 detik • Cutting, musik,
+                            teks sederhana, dan transisi dasar.
+                        </p>
+
+                        <span class="package-estimate">
+                            Estimasi: 1 hari
+                        </span>
+
+                        <span class="package-arrow">
+                            Pilih Paket →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        class="package"
+                        href="order.html?jasa=Video%20Editing&paket=Basic&harga=Rp40.000"
+                    >
+
+                        <div class="package-top">
+
+                            <span class="package-name">
+                                Basic
+                            </span>
+
+                            <span class="package-price">
+                                Rp40.000
+                            </span>
+
+                        </div>
+
+                        <p class="package-desc">
+                            Maks. 60 detik • Cutting, musik,
+                            teks, transisi, SFX sederhana,
+                            dan color correction.
+                        </p>
+
+                        <span class="package-estimate">
+                            Estimasi: 1–2 hari
+                        </span>
+
+                        <span class="package-arrow">
+                            Pilih Paket →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        class="package"
+                        href="order.html?jasa=Video%20Editing&paket=Standard&harga=Rp70.000"
+                    >
+
+                        <div class="package-top">
+
+                            <span class="package-name">
+                                Standard
+                            </span>
+
+                            <span class="package-price">
+                                Rp70.000
+                            </span>
+
+                        </div>
+
+                        <p class="package-desc">
+                            Maks. 2 menit • Subtitle, beat sync,
+                            SFX, color grading, dan transisi
+                            lebih detail.
+                        </p>
+
+                        <span class="package-estimate">
+                            Estimasi: 2–3 hari
+                        </span>
+
+                        <span class="package-arrow">
+                            Pilih Paket →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        class="package"
+                        href="order.html?jasa=Video%20Editing&paket=Premium&harga=Rp100.000"
+                    >
+
+                        <div class="package-top">
+
+                            <span class="package-name">
+                                Premium
+                            </span>
+
+                            <span class="package-price">
+                                Rp100.000
+                            </span>
+
+                        </div>
+
+                        <p class="package-desc">
+                            Maks. 3 menit • Sound design,
+                            color grading detail, serta efek
+                            dan transisi kompleks.
+                        </p>
+
+                        <span class="package-estimate">
+                            Estimasi: 3–4 hari
+                        </span>
+
+                        <span class="package-arrow">
+                            Pilih Paket →
+                        </span>
+
+                    </a>
+
                 </div>
 
-            </a>
+
+                <p class="service-note">
+                    Harga berdasarkan durasi video hasil akhir,
+                    bukan jumlah footage mentah.
+                </p>
+
+            </article>
 
 
-            <!-- PPT LOCKED / COMING SOON -->
+            <!-- =====================================
+                 FOTO
+            ====================================== -->
 
-            <div
-                class="service-card service-card-locked"
-                aria-disabled="true"
-            >
+            <article class="service-card">
 
-                <div class="service-icon">
-                    📊
-                </div>
+                <div class="service-head">
 
-                <div class="service-content">
+                    <div class="service-icon">
+                        📸
+                    </div>
 
-                    <span class="service-label">
-                        COMING SOON
-                    </span>
+                    <div class="service-head-text">
 
-                    <h2>
-                        PPT 🔒
-                    </h2>
+                        <span class="service-label">
+                            JASA
+                        </span>
 
-                    <p>
-                        Layanan sedang dalam persiapan.
-                    </p>
+                        <h2>
+                            Photo Editing
+                        </h2>
 
-                </div>
-
-                <div class="service-arrow">
-                    🔒
-                </div>
-
-            </div>
-
-
-            <!-- POSTER -->
-
-            <a
-                href="order.html?jasa=poster"
-                class="service-card"
-            >
-
-                <div class="service-icon">
-                    🎨
-                </div>
-
-                <div class="service-content">
-
-                    <span class="service-label">
-                        CREATIVE SERVICE
-                    </span>
-
-                    <h2>
-                        Poster
-                    </h2>
-
-                    <p>
-                        Desain poster sesuai kebutuhan.
-                    </p>
+                    </div>
 
                 </div>
 
-                <div class="service-arrow">
-                    →
+
+                <div class="package-list">
+
+
+                    <a
+                        class="package"
+                        href="order.html?jasa=Photo%20Editing&paket=Basic&harga=Rp25.000%2Ffoto"
+                    >
+
+                        <div class="package-top">
+
+                            <span class="package-name">
+                                Basic
+                            </span>
+
+                            <span class="package-price">
+                                Rp25.000/foto
+                            </span>
+
+                        </div>
+
+                        <p class="package-desc">
+                            Crop, resize, brightness, contrast,
+                            saturation, dan basic color correction.
+                        </p>
+
+                        <span class="package-estimate">
+                            Estimasi: 1 hari
+                        </span>
+
+                        <span class="package-arrow">
+                            Pilih Paket →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        class="package"
+                        href="order.html?jasa=Photo%20Editing&paket=Standard&harga=Rp40.000%2Ffoto"
+                    >
+
+                        <div class="package-top">
+
+                            <span class="package-name">
+                                Standard
+                            </span>
+
+                            <span class="package-price">
+                                Rp40.000/foto
+                            </span>
+
+                        </div>
+
+                        <p class="package-desc">
+                            Basic + retouch wajah ringan,
+                            remove objek sederhana, background
+                            cleanup, dan color grading.
+                        </p>
+
+                        <span class="package-estimate">
+                            Estimasi: 1–2 hari
+                        </span>
+
+                        <span class="package-arrow">
+                            Pilih Paket →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        class="package"
+                        href="order.html?jasa=Photo%20Editing&paket=Premium&harga=Rp70.000%2Ffoto"
+                    >
+
+                        <div class="package-top">
+
+                            <span class="package-name">
+                                Premium
+                            </span>
+
+                            <span class="package-price">
+                                Rp70.000/foto
+                            </span>
+
+                        </div>
+
+                        <p class="package-desc">
+                            Standard + manipulasi foto,
+                            penggantian background, retouch detail,
+                            compositing, dan efek kreatif.
+                        </p>
+
+                        <span class="package-estimate">
+                            Estimasi: 2–3 hari
+                        </span>
+
+                        <span class="package-arrow">
+                            Pilih Paket →
+                        </span>
+
+                    </a>
+
                 </div>
 
-            </a>
+
+                <p class="service-note">
+                    Foto dengan manipulasi kompleks atau beberapa
+                    foto yang digabung dapat dihitung sebagai custom project.
+                </p>
+
+            </article>
+
+
+            <!-- =====================================
+                 POSTER
+            ====================================== -->
+
+            <article class="service-card">
+
+                <div class="service-head">
+
+                    <div class="service-icon">
+                        🎨
+                    </div>
+
+                    <div class="service-head-text">
+
+                        <span class="service-label">
+                            JASA
+                        </span>
+
+                        <h2>
+                            Poster / Pamflet
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="package-list">
+
+
+                    <a
+                        class="package"
+                        href="order.html?jasa=Poster%20%2F%20Pamflet&paket=Basic&harga=Rp30.000"
+                    >
+
+                        <div class="package-top">
+
+                            <span class="package-name">
+                                Basic
+                            </span>
+
+                            <span class="package-price">
+                                Rp30.000
+                            </span>
+
+                        </div>
+
+                        <p class="package-desc">
+                            Template/layout sederhana, teks,
+                            foto, warna, dan beberapa elemen grafis.
+                        </p>
+
+                        <span class="package-estimate">
+                            Estimasi: 1–2 hari
+                        </span>
+
+                        <span class="package-arrow">
+                            Pilih Paket →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        class="package"
+                        href="order.html?jasa=Poster%20%2F%20Pamflet&paket=Standard&harga=Rp60.000"
+                    >
+
+                        <div class="package-top">
+
+                            <span class="package-name">
+                                Standard
+                            </span>
+
+                            <span class="package-price">
+                                Rp60.000
+                            </span>
+
+                        </div>
+
+                        <p class="package-desc">
+                            Desain custom, komposisi lebih detail,
+                            typography, icon, shape, color grading,
+                            dan layout profesional.
+                        </p>
+
+                        <span class="package-estimate">
+                            Estimasi: 2–3 hari
+                        </span>
+
+                        <span class="package-arrow">
+                            Pilih Paket →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        class="package"
+                        href="order.html?jasa=Poster%20%2F%20Pamflet&paket=Premium&harga=Rp100.000"
+                    >
+
+                        <div class="package-top">
+
+                            <span class="package-name">
+                                Premium
+                            </span>
+
+                            <span class="package-price">
+                                Rp100.000
+                            </span>
+
+                        </div>
+
+                        <p class="package-desc">
+                            Konsep custom, manipulasi foto,
+                            ilustrasi/elemen kompleks, visual hierarchy,
+                            detail tinggi, siap cetak & digital.
+                        </p>
+
+                        <span class="package-estimate">
+                            Estimasi: 3–5 hari
+                        </span>
+
+                        <span class="package-arrow">
+                            Pilih Paket →
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- =====================================
+                 PPT
+            ====================================== -->
+
+            <article class="service-card">
+
+                <div class="service-head">
+
+                    <div class="service-icon">
+                        🖥️
+                    </div>
+
+                    <div class="service-head-text">
+
+                        <span class="service-label">
+                            JASA
+                        </span>
+
+                        <h2>
+                            PowerPoint / PPT
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="package-list">
+
+
+                    <a
+                        class="package"
+                        href="order.html?jasa=PowerPoint%20%2F%20PPT%20Design&paket=Basic&harga=Rp5.000%2Fslide"
+                    >
+
+                        <div class="package-top">
+
+                            <span class="package-name">
+                                Basic
+                            </span>
+
+                            <span class="package-price">
+                                Rp5.000/slide
+                            </span>
+
+                        </div>
+
+                        <p class="package-desc">
+                            1–10 slide • Layout rapi, font, warna,
+                            gambar, icon, dan template sederhana.
+                        </p>
+
+                        <span class="package-estimate">
+                            Estimasi: 1–2 hari
+                        </span>
+
+                        <span class="package-arrow">
+                            Pilih Paket →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        class="package"
+                        href="order.html?jasa=PowerPoint%20%2F%20PPT%20Design&paket=Standard&harga=Rp10.000%2Fslide"
+                    >
+
+                        <div class="package-top">
+
+                            <span class="package-name">
+                                Standard
+                            </span>
+
+                            <span class="package-price">
+                                Rp10.000/slide
+                            </span>
+
+                        </div>
+
+                        <p class="package-desc">
+                            11–20 slide • Custom layout,
+                            infographic sederhana, icon, diagram,
+                            tabel, dan transisi.
+                        </p>
+
+                        <span class="package-estimate">
+                            Estimasi: 2–4 hari
+                        </span>
+
+                        <span class="package-arrow">
+                            Pilih Paket →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        class="package"
+                        href="order.html?jasa=PowerPoint%20%2F%20PPT%20Design&paket=Premium&harga=Rp20.000%2Fslide"
+                    >
+
+                        <div class="package-top">
+
+                            <span class="package-name">
+                                Premium
+                            </span>
+
+                            <span class="package-price">
+                                Rp20.000/slide
+                            </span>
+
+                        </div>
+
+                        <p class="package-desc">
+                            21–30+ slide • Custom design,
+                            infographic kompleks, animasi, motion,
+                            diagram, dan visual storytelling.
+                        </p>
+
+                        <span class="package-estimate">
+                            Estimasi: 4–7 hari
+                        </span>
+
+                        <span class="package-arrow">
+                            Pilih Paket →
+                        </span>
+
+                    </a>
+
+                </div>
+
+
+                <p class="service-note">
+                    Harga PPT dihitung berdasarkan jumlah slide
+                    dan kompleksitas desain.
+                </p>
+
+            </article>
 
 
         </section>
@@ -242,13 +1300,10 @@
 
         <a
             href="index.html"
-            class="package-back"
+            class="back-button"
         >
-
-            ← Kembali ke Home
-
+            ← Kembali ke Beranda
         </a>
-
 
     </main>
 
@@ -256,48 +1311,11 @@
     <!-- FOOTER -->
 
     <footer>
-
-        <span>✦</span>
-
-        CIO — Creative In One
-
-        <span>✦</span>
-
+        ✦ <span>CIO</span> — Creative In One ✦
     </footer>
-
 
 </div>
 
-
-<!-- PPT LOCKED STYLE -->
-
-<style>
-
-    .service-card-locked {
-
-        cursor: not-allowed;
-
-        opacity: .68;
-
-        filter: saturate(.65);
-
-    }
-
-
-    .service-card-locked:hover {
-
-        transform: none;
-
-        border-color: rgba(212, 175, 55, .28);
-
-        box-shadow:
-            0 12px 30px rgba(0, 0, 0, .20);
-
-    }
-
-</style>
-
-
 </body>
-
 </html>
+```
