@@ -1,206 +1,596 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <title>Order — CIO Creative In One</title>
 
-    <title>Order — CIO Creative</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #061a32;
+            color: #f5f1e8;
+            overflow-x: hidden;
+        }
+
+        .page {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(212, 175, 55, .10),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 90% 90%,
+                    rgba(212, 175, 55, .08),
+                    transparent 25%
+                ),
+                #061a32;
+        }
+
+        /* ORNAMEN */
+
+        .orb {
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            border: 1px solid rgba(212, 175, 55, .13);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .orb-one {
+            top: -130px;
+            left: -120px;
+        }
+
+        .orb-two {
+            right: -130px;
+            bottom: -130px;
+        }
+
+        .star {
+            position: absolute;
+            color: #d4af37;
+            opacity: .55;
+            pointer-events: none;
+        }
+
+        .star-one {
+            top: 190px;
+            left: 8%;
+            font-size: 22px;
+        }
+
+        .star-two {
+            top: 360px;
+            right: 8%;
+            font-size: 17px;
+        }
+
+        .star-three {
+            bottom: 150px;
+            left: 13%;
+            font-size: 13px;
+        }
+
+        /* HEADER */
+
+        .header {
+            position: relative;
+            z-index: 5;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 25px 20px 5px;
+        }
+
+        .logo {
+            display: block;
+            width: 78px;
+            height: 78px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        /* CONTAINER */
+
+        .order-container {
+            position: relative;
+            z-index: 3;
+
+            width: min(92%, 650px);
+            margin: 0 auto;
+            padding: 15px 0 45px;
+        }
+
+        /* TITLE */
+
+        .order-title {
+            margin: 20px auto 25px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 7px 14px;
+
+            border: 1px solid rgba(212, 175, 55, .45);
+            border-radius: 50px;
+
+            color: #d4af37;
+            font-size: 9px;
+            letter-spacing: 2px;
+            white-space: nowrap;
+        }
+
+        .order-title h1 {
+            margin-top: 17px;
+            color: #d4af37;
+            font-size: clamp(28px, 6vw, 35px);
+            line-height: 1.15;
+        }
+
+        .order-title p {
+            margin-top: 8px;
+            color: #9aa7b8;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* CARD */
+
+        .order-card {
+            width: 100%;
+            padding: 25px;
+
+            border: 1px solid rgba(212, 175, 55, .30);
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #0d2b4d,
+                    #081d36
+                );
+
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, .25);
+        }
+
+        /* PAKET */
+
+        .selected-package {
+            margin-bottom: 22px;
+            padding: 17px;
+
+            border: 1px solid rgba(212, 175, 55, .18);
+            border-radius: 12px;
+
+            background: rgba(4, 17, 33, .45);
+        }
+
+        .selected-package-label {
+            display: block;
+            margin-bottom: 6px;
+
+            color: #8997a9;
+            font-size: 9px;
+            letter-spacing: 1.5px;
+        }
+
+        .selected-package-service {
+            color: #d4af37;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .selected-package h2 {
+            margin-top: 5px;
+
+            color: #f5f1e8;
+            font-size: 20px;
+            line-height: 1.25;
+
+            overflow-wrap: anywhere;
+        }
+
+        .selected-package-price {
+            display: block;
+            margin-top: 8px;
+
+            color: #d4af37;
+            font-size: 19px;
+            font-weight: 700;
+        }
+
+        /* FORM */
+
+        .form-group {
+            margin-bottom: 17px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+
+            color: #d4af37;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            display: block;
+
+            width: 100%;
+            max-width: 100%;
+
+            padding: 12px 13px;
+
+            border: 1px solid rgba(212, 175, 55, .22);
+            border-radius: 9px;
+
+            outline: none;
+
+            background: #071a32;
+            color: #f5f1e8;
+
+            font-family: inherit;
+            font-size: 12px;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #627186;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #d4af37;
+        }
+
+        .form-group textarea {
+            min-height: 115px;
+            resize: vertical;
+        }
+
+        /* BUTTON */
+
+        .whatsapp-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 100%;
+            margin-top: 10px;
+            padding: 14px;
+
+            border: none;
+            border-radius: 10px;
+
+            background: #d4af37;
+            color: #071a32;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            cursor: pointer;
+            transition: .25s ease;
+        }
+
+        .whatsapp-button:hover {
+            background: #e4c65a;
+            transform: translateY(-2px);
+        }
+
+        /* BACK */
+
+        .back-button {
+            display: block;
+
+            width: fit-content;
+            max-width: 100%;
+
+            margin: 21px auto 0;
+
+            color: #d4af37;
+            font-size: 12px;
+            text-decoration: none;
+
+            overflow-wrap: anywhere;
+        }
+
+        /* FOOTER */
+
+        footer {
+            position: relative;
+            z-index: 5;
+
+            padding: 18px 15px 25px;
+
+            color: #718095;
+            font-size: 10px;
+
+            text-align: center;
+            line-height: 1.7;
+        }
+
+        footer span {
+            margin: 0 4px;
+            color: #d4af37;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            .header {
+                padding-top: 18px;
+            }
+
+            .logo {
+                width: 68px;
+                height: 68px;
+            }
+
+            .order-container {
+                width: 90%;
+                padding-top: 8px;
+            }
+
+            .order-title {
+                margin-top: 18px;
+            }
+
+            .order-title h1 {
+                font-size: 27px;
+            }
+
+            .order-title p {
+                font-size: 12px;
+            }
+
+            .order-card {
+                padding: 20px 15px;
+                border-radius: 15px;
+            }
+
+            .selected-package {
+                padding: 14px;
+            }
+
+            .selected-package h2 {
+                font-size: 18px;
+            }
+
+            .selected-package-price {
+                font-size: 17px;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                font-size: 12px;
+            }
+
+            .whatsapp-button {
+                padding: 14px 10px;
+                font-size: 12px;
+            }
+        }
+
+        /* HP KECIL */
+
+        @media (max-width: 380px) {
+
+            .order-container {
+                width: 92%;
+            }
+
+            .order-title h1 {
+                font-size: 25px;
+            }
+
+            .order-card {
+                padding: 17px 13px;
+            }
+
+            .selected-package h2 {
+                font-size: 17px;
+            }
+        }
+
+        @media (hover: none) {
+
+            .whatsapp-button:hover {
+                transform: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="page detail-page">
+<div class="page">
 
     <!-- ORNAMEN -->
-    <div class="package-orb package-orb-one"></div>
-    <div class="package-orb package-orb-two"></div>
 
-    <div class="package-star package-star-one">✦</div>
-    <div class="package-star package-star-two">✧</div>
-    <div class="package-star package-star-three">✦</div>
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+
+    <div class="star star-one">✦</div>
+    <div class="star star-two">✧</div>
+    <div class="star star-three">✦</div>
 
 
     <!-- HEADER -->
+
     <header class="header">
 
-        <img
-            src="logo-cio.png.jpeg"
-            alt="Logo CIO Creative In One"
-            class="logo"
-        >
+        <a href="index.html">
+            <img
+                src="logo-cio.png.jpeg"
+                alt="CIO Creative In One"
+                class="logo"
+            >
+        </a>
 
     </header>
 
 
-    <!-- CONTENT -->
-    <main class="detail-container">
+    <!-- ORDER -->
 
-        <div class="home-badge">
-            <span>✦</span>
-            CIO CREATIVE
-            <span>✦</span>
+    <main class="order-container">
+
+        <div class="order-title">
+
+            <div class="badge">
+                ✦ CIO CREATIVE ✦
+            </div>
+
+            <h1>Order Jasa</h1>
+
+            <p>
+                Lengkapi data pesananmu di bawah.
+            </p>
+
         </div>
 
 
-        <section class="detail-title">
+        <section class="order-card">
 
-            <p>
-                DETAIL PESANAN
-            </p>
+            <!-- PAKET YANG DIPILIH -->
 
-            <h1 id="serviceName">
-                Order
-            </h1>
+            <div class="selected-package">
 
-            <p id="packageName">
-                Paket
-            </p>
+                <span class="selected-package-label">
+                    PAKET YANG DIPILIH
+                </span>
 
-        </section>
-
-
-        <!-- FORM -->
-        <section class="detail-card">
-
-
-            <div class="form-group">
-
-                <label for="nama">
-                    Nama
-                </label>
-
-                <input
-                    type="text"
-                    id="nama"
-                    placeholder="Masukkan nama kamu"
-                    autocomplete="name"
+                <div
+                    class="selected-package-service"
+                    id="serviceName"
                 >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label for="nomor">
-                    Nomor WhatsApp
-                </label>
-
-                <input
-                    type="tel"
-                    id="nomor"
-                    placeholder="Contoh: 081234567890"
-                    autocomplete="tel"
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label for="deskripsi">
-                    Detail Pesanan
-                </label>
-
-                <textarea
-                    id="deskripsi"
-                    placeholder="Jelaskan kebutuhan edit kamu..."
-                ></textarea>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label for="file">
-                    Link File / Google Drive
-                </label>
-
-                <input
-                    type="url"
-                    id="file"
-                    placeholder="Tempel link file jika ada"
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label for="catatan">
-                    Catatan Tambahan
-                </label>
-
-                <textarea
-                    id="catatan"
-                    placeholder="Tambahkan catatan jika diperlukan..."
-                ></textarea>
-
-            </div>
-
-
-            <!-- RINGKASAN -->
-            <div class="order-summary">
-
-                <div>
-                    <span>Layanan</span>
-                    <strong id="summaryService">-</strong>
+                    JASA
                 </div>
 
-                <div>
-                    <span>Paket</span>
-                    <strong id="summaryPackage">-</strong>
-                </div>
+                <h2 id="packageName">
+                    Memuat paket...
+                </h2>
 
-                <div>
-                    <span>Total</span>
-                    <strong id="summaryPrice">-</strong>
-                </div>
+                <strong
+                    class="selected-package-price"
+                    id="packagePrice"
+                >
+                    -
+                </strong>
 
             </div>
 
 
-            <!-- WHATSAPP -->
-            <button
-                type="button"
-                class="whatsapp-button"
-                onclick="kirimWhatsApp()"
+            <!-- FORM -->
+
+            <form id="orderForm">
+
+                <div class="form-group">
+
+                    <label for="nama">
+                        Nama
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nama"
+                        placeholder="Masukkan nama kamu"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="whatsapp">
+                        Nomor WhatsApp
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="whatsapp"
+                        placeholder="08xxxxxxxxxx"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="catatan">
+                        Detail Pesanan
+                    </label>
+
+                    <textarea
+                        id="catatan"
+                        placeholder="Jelaskan konsep, ukuran, durasi, atau kebutuhan lainnya..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="whatsapp-button"
+                >
+                    💬 Kirim Pesanan ke WhatsApp
+                </button>
+
+            </form>
+
+
+            <a
+                href="pesan.html"
+                class="back-button"
             >
-                💬 Kirim Pesanan ke WhatsApp
-            </button>
-
+                ← Kembali ke Pilih Jasa
+            </a>
 
         </section>
-
-
-        <a
-            href="javascript:history.back()"
-            class="package-back"
-        >
-            ← Kembali
-        </a>
 
     </main>
 
 
     <!-- FOOTER -->
+
     <footer>
-
-        <span>✦</span>
-
-        CIO — Creative In One
-
-        <span>✦</span>
-
+        ✦ <span>CIO</span> — Creative In One ✦
     </footer>
 
 </div>
@@ -208,213 +598,117 @@
 
 <script>
 
-/* =========================================================
-   AMBIL DATA URL
-========================================================= */
+    /* =========================================
+       BACA DATA DARI LINK
+    ========================================= */
 
-const params =
-    new URLSearchParams(window.location.search);
+    const params = new URLSearchParams(
+        window.location.search
+    );
 
-const jasa =
-    params.get("jasa") || "video";
+    const jasa =
+        params.get("jasa") || "Jasa";
 
-const paket =
-    params.get("paket") || "Basic";
+    const paket =
+        params.get("paket") || "Paket";
 
+    const harga =
+        params.get("harga") || "-";
 
-/* =========================================================
-   DATA JASA + HARGA
-========================================================= */
 
-const data = {
+    /* =========================================
+       TAMPILKAN DATA PAKET
+    ========================================= */
 
-    video: {
+    document.getElementById("serviceName")
+        .textContent = jasa;
 
-        name: "Edit Video",
+    document.getElementById("packageName")
+        .textContent = paket;
 
-        icon: "🎬",
+    document.getElementById("packagePrice")
+        .textContent = harga;
 
-        prices: {
-            Basic: "Rp20.000",
-            Standard: "Rp30.000",
-            Premium: "Rp45.000"
-        }
 
-    },
+    /* =========================================
+       FORM → WHATSAPP CEO
+    ========================================= */
 
+    document.getElementById("orderForm")
+        .addEventListener("submit", function(event) {
 
-    foto: {
+            event.preventDefault();
 
-        name: "Edit Foto",
 
-        icon: "📷",
+            const nama =
+                document.getElementById("nama")
+                    .value
+                    .trim();
 
-        prices: {
-            Basic: "Rp15.000",
-            Standard: "Rp25.000",
-            Premium: "Rp35.000"
-        }
 
-    },
+            const whatsapp =
+                document.getElementById("whatsapp")
+                    .value
+                    .trim();
 
 
-    ppt: {
+            const catatan =
+                document.getElementById("catatan")
+                    .value
+                    .trim();
 
-        name: "PPT",
 
-        icon: "📊",
+            /* =====================================
+               NOMOR WHATSAPP CEO CIO
+               +62 856-4504-5260
+               ===================================== */
 
-        prices: {
-            Basic: "Rp20.000",
-            Standard: "Rp30.000",
-            Premium: "Rp45.000"
-        }
+            const nomorCIO = "6285645045260";
 
-    },
 
+            /* =====================================
+               PESAN OTOMATIS
+               ===================================== */
 
-    poster: {
+            const pesan =
+`Halo CIO Creative In One 👋
 
-        name: "Poster",
+Saya ingin memesan jasa:
 
-        icon: "🎨",
+Jasa: ${jasa}
+Paket: ${paket}
+Harga: ${harga}
 
-        prices: {
-            Basic: "Rp15.000",
-            Standard: "Rp25.000",
-            Premium: "Rp35.000"
-        }
+Nama: ${nama}
+Nomor WhatsApp: ${whatsapp}
 
-    }
+Detail Pesanan:
+${catatan}
 
-};
+Terima kasih 🙏`;
 
 
-const service =
-    data[jasa] || data.video;
+            /* =====================================
+               LINK WHATSAPP
+               ===================================== */
 
-const price =
-    service.prices[paket] ||
-    service.prices.Basic;
+            const whatsappURL =
+                "https://wa.me/" +
+                nomorCIO +
+                "?text=" +
+                encodeURIComponent(pesan);
 
 
-/* =========================================================
-   TAMPILKAN INFORMASI
-========================================================= */
+            /* =====================================
+               LANGSUNG BUKA WHATSAPP
+               ===================================== */
 
-document.getElementById("serviceName").textContent =
-    service.icon + " " + service.name;
+            window.location.href = whatsappURL;
 
-document.getElementById("packageName").textContent =
-    "Paket " + paket;
-
-document.getElementById("summaryService").textContent =
-    service.name;
-
-document.getElementById("summaryPackage").textContent =
-    paket;
-
-document.getElementById("summaryPrice").textContent =
-    price;
-
-
-/* =========================================================
-   KIRIM WHATSAPP
-========================================================= */
-
-function kirimWhatsApp() {
-
-    const nama =
-        document.getElementById("nama").value.trim();
-
-    const nomor =
-        document.getElementById("nomor").value.trim();
-
-    const deskripsi =
-        document.getElementById("deskripsi").value.trim();
-
-    const file =
-        document.getElementById("file").value.trim();
-
-    const catatan =
-        document.getElementById("catatan").value.trim();
-
-
-    if (!nama) {
-
-        alert("Masukkan nama terlebih dahulu.");
-
-        return;
-    }
-
-
-    if (!nomor) {
-
-        alert("Masukkan nomor WhatsApp terlebih dahulu.");
-
-        return;
-    }
-
-
-    if (!deskripsi) {
-
-        alert("Jelaskan detail pesanan kamu terlebih dahulu.");
-
-        return;
-    }
-
-
-    /* NOMOR WHATSAPP CEO CIO */
-
-    const nomorAdmin =
-        "6285645045260";
-
-
-    const pesan =
-
-`Halo CIO! 👋
-
-Saya ingin memesan jasa.
-
-📌 Layanan:
-${service.name}
-
-📦 Paket:
-${paket}
-
-💰 Harga:
-${price}
-
-👤 Nama:
-${nama}
-
-📱 Nomor WhatsApp:
-${nomor}
-
-📝 Detail Pesanan:
-${deskripsi}
-
-🔗 Link File:
-${file || "-"}
-
-📎 Catatan:
-${catatan || "-"}
-
-Mohon info untuk proses selanjutnya. Terima kasih!`;
-
-
-    const url =
-        "https://wa.me/" +
-        nomorAdmin +
-        "?text=" +
-        encodeURIComponent(pesan);
-
-
-    window.open(url, "_blank");
-
-}
+        });
 
 </script>
 
 </body>
 </html>
+```
